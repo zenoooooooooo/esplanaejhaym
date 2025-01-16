@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import "../../public/mySetup/mySetup.gltf";
 
 export const metadata: Metadata = {
   title: "Create Next App",
