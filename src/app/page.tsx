@@ -1,9 +1,8 @@
 "use client";
 import { Suspense } from "react";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import RotatingCube from "./components/RotatingCube";
-import MySetup from "./components/MySetup";
+import MyRoom from "./components/MyRoom";
 import CanvasLoader from "./components/CanvasLoader";
 export default function Home() {
   return (
@@ -17,10 +16,12 @@ export default function Home() {
           alignItems: "center",
         }}
       >
+        {" "}
+        <directionalLight position={[10, 10, 5]} intensity={10} />
         <Suspense fallback={<CanvasLoader />}>
-          <MySetup />
+          <MyRoom />
         </Suspense>
-        <PerspectiveCamera makeDefault position={[0, 0, 30]} />
+        <OrbitControls makeDefault position={[0, 0, 30]} />
       </Canvas>
     </>
   );
