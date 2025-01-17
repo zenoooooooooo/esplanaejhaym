@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next.config.mjs",
-    "src/app/components/MyRoom.jsx"
+    "src/app/components/MyRoom.tsx"
   ],
   "exclude": ["node_modules"]
 }
