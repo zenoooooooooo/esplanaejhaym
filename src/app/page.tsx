@@ -1,10 +1,36 @@
 "use client";
-import { Suspense } from "react";
-import { OrbitControls } from "@react-three/drei";
+import { Suspense, useEffect, useState } from "react";
+
+import {
+  FlyControls,
+  OrbitControls,
+  PerspectiveCamera,
+} from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
-import MyRoom from "./components/MyRoom";
+import Model from "./components/Model";
 import CanvasLoader from "./components/CanvasLoader";
+import { Vector3 } from "three";
+import * as THREE from "three";
 export default function Home() {
+  const [lightPosition, setLightPosition] = useState<Vector3 | undefined>(
+    undefined
+  );
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      const x = event.clientX / window.innerWidth;
+      const y = -(event.clientY / window.innerHeight);
+      const z = event.clientY / window.innerHeight;
+      setLightPosition(new THREE.Vector3(x, y, z));
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <>
       <Canvas
@@ -16,12 +42,22 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        {" "}
-        <directionalLight position={[10, 10, 5]} intensity={10} />
+        <spotLight
+          intensity={50}
+          position={lightPosition}
+          angle={Math.PI / 5}
+          castShadow
+        />
+        <axesHelper args={[5]} />
         <Suspense fallback={<CanvasLoader />}>
-          <MyRoom />
+          <Model
+            scale={4}
+            position={[-3, -3, -3]}
+            rotation={[0, 0, 0]}
+            glb="/models/MyRoom.glb"
+          />
         </Suspense>
-        <OrbitControls makeDefault position={[0, 0, 30]} />
+        <OrbitControls position={[2, 2, 2]} />
       </Canvas>
     </>
   );
