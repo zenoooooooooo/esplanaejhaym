@@ -1,12 +1,7 @@
 "use client";
 import { Suspense, useEffect, useState } from "react";
 
-import {
-  FlyControls,
-  OrbitControls,
-  PerspectiveCamera,
-} from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import Model from "./components/Model";
 import CanvasLoader from "./components/CanvasLoader";
@@ -16,12 +11,15 @@ export default function Home() {
   const [lightPosition, setLightPosition] = useState<Vector3 | undefined>(
     undefined
   );
+
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      const x = event.clientX / window.innerWidth;
-      const y = -(event.clientY / window.innerHeight);
-      const z = event.clientY / window.innerHeight;
-      setLightPosition(new THREE.Vector3(x, y, z));
+      let x = event.clientX / window.innerWidth;
+      let y = -(event.clientY / window.innerHeight);
+      const z = 10;
+      x = x <= 0 ? x : -x;
+      y = y <= 0 ? y : -y;
+      setLightPosition(new THREE.Vector3(x, -y, z));
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -43,10 +41,18 @@ export default function Home() {
         }}
       >
         <spotLight
-          intensity={50}
-          position={lightPosition}
-          angle={Math.PI / 5}
+          intensity={100}
+
+          angle={Math.PI / 25}
+          penumbra={0.1}
+          decay={2}
+          lookAt={() => lightPosition}
           castShadow
+        />
+        <directionalLight
+          intensity={0.05}
+          position={[1, 1, 1]}
+          color="yellow"
         />
         <axesHelper args={[5]} />
         <Suspense fallback={<CanvasLoader />}>
@@ -57,7 +63,13 @@ export default function Home() {
             glb="/models/MyRoom.glb"
           />
         </Suspense>
-        <OrbitControls position={[2, 2, 2]} />
+        {/* <PerspectiveCamera makeDefault fov={50} position={[7.3, 5, 7.3]} /> */}
+        <PerspectiveCamera makeDefault fov={50} position={[0, 0, 5]} />
+        <OrbitControls
+          enableZoom={false}
+          enableRotate={false}
+          enablePan={false}
+        />
       </Canvas>
     </>
   );
