@@ -16,8 +16,9 @@ const Model: React.FC<ModelProps> = ({ scale, position, rotation, glb }) => {
   const { scene } = useGLTF(glb);
   const raycaster = new THREE.Raycaster();
   const { gl, camera } = useThree();
-  const [hoveredObjectPosition, setHoveredObjectPosition] =
-    useState<THREE.Vector3 | null>(null);
+  const [hoveredObjectPosition, setHoveredObjectPosition] = useState<
+    THREE.Vector3 | undefined
+  >(undefined);
   useEffect(() => {
     const onMouseMove = (event: MouseEvent) => {
       const mouse = new THREE.Vector2(
@@ -37,7 +38,7 @@ const Model: React.FC<ModelProps> = ({ scale, position, rotation, glb }) => {
         setHoveredObjectPosition(new THREE.Vector3(x, y, z));
         console.log(intersects[0].point);
       } else {
-        setHoveredObjectPosition(null);
+        setHoveredObjectPosition(undefined);
       }
     };
 

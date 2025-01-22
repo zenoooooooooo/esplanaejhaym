@@ -24,18 +24,16 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        <directionalLight intensity={1} position={[1, 1, 1]} color="yellow" />
         <axesHelper args={[5]} />
         <Suspense fallback={<CanvasLoader />}>
           <Model
             scale={4}
-            position={[-3, -3, -3]}
-            rotation={[0, 0, 0]}
+            position={[1, -1, -14]}
+            rotation={[0.5, -0.8, 0]}
             glb="/models/MyRoom.glb"
           />
         </Suspense>
-        <PerspectiveCamera makeDefault fov={50} position={[7.3, 5, 7.3]} />
-        {/* <PerspectiveCamera makeDefault fov={50} position={[0, 0, 6]} /> */}
+        <PerspectiveCamera makeDefault fov={100} position={[0, 0, 0]} />
         <OrbitControls
           enableZoom={false}
           enableRotate={false}
