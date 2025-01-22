@@ -24,19 +24,7 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        <spotLight
-          position={lightPosition}
-          intensity={100}
-          angle={Math.PI / 25}
-          penumbra={0.1}
-          decay={2}
-          castShadow
-        />
-        <directionalLight
-          intensity={0.05}
-          position={[1, 1, 1]}
-          color="yellow"
-        />
+        <directionalLight intensity={1} position={[1, 1, 1]} color="yellow" />
         <axesHelper args={[5]} />
         <Suspense fallback={<CanvasLoader />}>
           <Model
@@ -47,7 +35,7 @@ export default function Home() {
           />
         </Suspense>
         <PerspectiveCamera makeDefault fov={50} position={[7.3, 5, 7.3]} />
-        {/* <PerspectiveCamera makeDefault fov={50} position={[0, 0, 5]} /> */}
+        {/* <PerspectiveCamera makeDefault fov={50} position={[0, 0, 6]} /> */}
         <OrbitControls
           enableZoom={false}
           enableRotate={false}
