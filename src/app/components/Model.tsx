@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { useFrame, useThree, Vector3 } from "@react-three/fiber";
-import LightSphere from "./LightSphere";
 
 interface ModelProps {
   scale?: number;
@@ -12,13 +11,20 @@ interface ModelProps {
   glb: string;
 }
 
-const Model: React.FC<ModelProps> = ({ scale, position, rotation, glb }) => {
+const Model: React.FC<ModelProps> = ({
+  scale,
+  position,
+  rotation,
+  glb,
+}) => {
   const { scene } = useGLTF(glb);
   const raycaster = new THREE.Raycaster();
   const { gl, camera } = useThree();
   const [hoveredObjectPosition, setHoveredObjectPosition] = useState<
     THREE.Vector3 | undefined
   >(undefined);
+
+  const [light, setLight] = useState(false);
   useEffect(() => {
     const onMouseMove = (event: MouseEvent) => {
       const mouse = new THREE.Vector2(
@@ -43,20 +49,35 @@ const Model: React.FC<ModelProps> = ({ scale, position, rotation, glb }) => {
     };
 
     window.addEventListener("mousemove", onMouseMove);
-
+    window.addEventListener("click", toggleLight);
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("click", toggleLight);
     };
   }, [gl, camera, scene]);
 
+  function toggleLight(e: MouseEvent) {
+    e.preventDefault();
+    setLight((prev) => !prev);
+  }
+
   return (
     <>
-      <LightSphere position={hoveredObjectPosition} />
       <primitive
         object={scene}
         scale={scale}
         position={position}
         rotation={rotation}
+      />
+      <spotLight
+        position={hoveredObjectPosition}
+        intensity={150}
+        color="white"
+        angle={Math.PI / 25}
+        decay={1.5}
+        penumbra={2}
+        visible={light}
+        castShadow
       />
     </>
   );
