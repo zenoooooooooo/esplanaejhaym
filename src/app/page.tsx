@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { navLinks } from "./constants";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { CanvasLoader, MyFace } from "./components";
 import { Suspense } from "react";
@@ -10,11 +11,15 @@ export default function Home() {
     <>
       <main className="bg-[#002b36] text-white">
         <nav>
-          <Link href="/aboutMe">About Me</Link>
-          <Link href="/aboutMe">Projects</Link>
-          <Link href="/aboutMe">Contact Me</Link>
+          <ul className="flex gap-4">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href}>{link.text}</Link>
+              </li>
+            ))}
+          </ul>
         </nav>
-        <Canvas className="">
+        <Canvas style={{ height: "100vh" }}>
           <Suspense fallback={<CanvasLoader />}>
             <MyFace
               scale={1}
