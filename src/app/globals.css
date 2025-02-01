@@ -2,3 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+.typing {
+    width: 100%;
+    letter-spacing: 1;
+    border-right: solid 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+    animation: typing 1s steps(100), cursor 0.4s step-end infinite alternate;
+  }
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes cursor {
+  50% {
+    border-right: transparent;
+  }
+}

@@ -1,53 +1,40 @@
 "use client";
-
 import Link from "next/link";
 import { navLinks } from "./constants";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { CanvasLoader, MyFace, StarField } from "./components";
+import { PerspectiveCamera } from "@react-three/drei";
+import {
+  CanvasLoader,
+  MyFace,
+  SolarSystem,
+  StarField,
+  Sun,
+} from "./components";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
+import { Vector3 } from "three";
 export default function Home() {
   return (
     <>
-      <main className="bg-black text-white">
-        <nav>
-          <ul className="flex gap-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href}>{link.text}</Link>
-              </li>
-            ))}
+      <main className="bg-black text-white font-primary">
+        <nav className="p-12">
+          <ul className="flex items-center">
+            <span>
+              <li className="text-[20px] typing">THIS IS MY PORTFOLIO</li>
+            </span>
+            <div className="ml-auto flex items-center gap-8">
+              {navLinks.map((link) => (
+                <li
+                  key={link.href}
+                  className="hover:underline text-[20px] border-2 p-2 border-t-0 border-b-0"
+                >
+                  <Link href={link.href}>{link.text}</Link>
+                </li>
+              ))}
+            </div>
           </ul>
         </nav>
-        <Canvas style={{ height: "100vh", width: "100vw" }}>
-          <Suspense fallback={<CanvasLoader />}>
-            <StarField count={8000} />
-            <Sun />
-            <MyFace
-              scale={1}
-              position={[0, -0.15, -0.5]}
-              rotation={[0, 0.7, 0]}
-            />
-
-            {/* <PerspectiveCamera makeDefault  /> */}
-            <OrbitControls enableRotate enablePan />
-          </Suspense>
-        </Canvas>
+        <SolarSystem />
       </main>
     </>
-  );
-}
-
-function Sun() {
-  return (
-    <mesh position={[2, 0, -1]}>
-      <sphereGeometry args={[10, 5, 5]} /> {/* Bigger sphere for the sun */}
-      <meshStandardMaterial
-        emissive={"#ffaa00"} // Glowing effect
-        emissiveIntensity={3}
-        color={"#ffcc00"}
-      />
-      <pointLight intensity={5} color={"#ffcc00"} castShadow />
-    </mesh>
   );
 }

@@ -6,7 +6,11 @@ const navLinks: INavLinks[] = [
   {
     href: "/projects",
     text: "Projects",
-  }
+  },
+  {
+    href: "/contactMe",
+    text: "Contact Me",
+  },
 ];
 
 export default navLinks;
