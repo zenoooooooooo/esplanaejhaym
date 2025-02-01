@@ -1,25 +1,18 @@
 "use client";
 import Link from "next/link";
 import { navLinks } from "./constants";
-import { PerspectiveCamera } from "@react-three/drei";
-import {
-  CanvasLoader,
-  MyFace,
-  SolarSystem,
-  StarField,
-  Sun,
-} from "./components";
+import { CanvasLoader, SolarSystem } from "./components";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Vector3 } from "three";
+
 export default function Home() {
   return (
     <>
       <main className="bg-black text-white font-primary">
-        <nav className="p-12">
+        <nav className="p-12 absolute top-0 left-0 right-0 z-[9999]">
           <ul className="flex items-center">
-            <span>
-              <li className="text-[20px] typing">THIS IS MY PORTFOLIO</li>
+            <span className="">
+              <li className="text-[20px]">E-Jhay Esplana's Career Portfolio</li>
             </span>
             <div className="ml-auto flex items-center gap-8">
               {navLinks.map((link) => (
@@ -33,6 +26,7 @@ export default function Home() {
             </div>
           </ul>
         </nav>
+
         <SolarSystem />
       </main>
     </>

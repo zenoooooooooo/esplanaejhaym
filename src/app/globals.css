@@ -8,7 +8,6 @@
     border-right: solid 7px;
     white-space: nowrap;
     overflow: hidden;
-    color: white;
     animation: typing 1s steps(100), cursor 0.4s step-end infinite alternate;
   }
 @keyframes typing {

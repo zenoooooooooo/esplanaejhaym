@@ -1,7 +1,5 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
-import Sun from "./Sun";
-
 function StarField({ count = 8000 }) {
   const points = useRef<THREE.Points>(null);
 

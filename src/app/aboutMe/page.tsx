@@ -5,7 +5,7 @@ import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { CanvasLoader, MyRoom } from "../components";
 
-export default function AboutMe() {
+export default function Personal() {
   return (
     <>
       <Canvas
