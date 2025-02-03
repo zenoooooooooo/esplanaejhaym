@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { navLinks } from "./constants";
-import { useMediaQuery } from "react-responsive";
 import { SolarSystem } from "./components";
 
 export default function Home() {
