@@ -1,9 +1,8 @@
 "use client";
 import Link from "next/link";
 import { navLinks } from "./constants";
-import { CanvasLoader, SolarSystem } from "./components";
-import { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Leva, useControls } from "leva";
+import { SolarSystem } from "./components";
 
 export default function Home() {
   return (
@@ -28,6 +27,7 @@ export default function Home() {
         </nav>
 
         <SolarSystem />
+        <Leva />
       </main>
     </>
   );

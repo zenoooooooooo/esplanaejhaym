@@ -17,17 +17,16 @@ const Sun: React.FC<SunProps> = ({
   const { scene } = useGLTF("./models/Sun.glb");
   const sunRef = useRef<THREE.Group>(null);
   const radius = 50;
-  let angle = 0; 
-
+  let angle = 0;
 
   useFrame(() => {
     if (sunRef.current) {
-      angle += 0.007; 
+      angle += 0.005;
 
-      const x = radius * Math.cos(angle); 
-      const z = radius * Math.sin(angle); 
+      const x = radius * Math.cos(angle);
+      const z = radius * Math.sin(angle);
 
-      sunRef.current.position.set(x, 0, z); 
+      sunRef.current.position.set(x, 0, z);
     }
   });
 

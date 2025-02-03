@@ -13,13 +13,15 @@ const CanvasLoader = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        backgroundColor: "black",
+        zIndex: 9999,
       }}
     >
       <span className="canvas-loader" />
       <p
         style={{
           fontSize: 14,
-          color: "black",
+          color: "white",
           fontWeight: 800,
           marginTop: 40,
         }}

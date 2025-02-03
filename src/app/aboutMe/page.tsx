@@ -18,11 +18,7 @@ export default function Personal() {
         }}
       >
         <Suspense fallback={<CanvasLoader />}>
-          <MyRoom
-            scale={4}
-            position={[1, -1, -13]}
-            rotation={[0.5, -0.8, 0]}
-          />
+          <MyRoom scale={4} position={[1, -1, -13]} rotation={[0.5, -0.8, 0]} />
         </Suspense>
         <PerspectiveCamera makeDefault fov={100} position={[0, 0, 1]} />
         <OrbitControls
