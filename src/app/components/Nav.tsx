@@ -34,8 +34,8 @@ const Nav = () => {
         />
       </ul>
       <div
-        className={`transition-opacity duration-300 ease-in-out ${
-          isMenuActive ? "block" : "hidden"
+        className={`overflow-hidden transition-max-height duration-300 ease-in-out ${
+          isMenuActive ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <ul>
