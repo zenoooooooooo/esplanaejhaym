@@ -15,7 +15,12 @@ export default {
       fontFamily: {
         primary: "JetBrains Mono"
       },
-      
+      screens: {
+        small: { max: "440px" },
+        mobile: { max: "768px" },
+        tablet: { min: "768px", max: "1024px" },
+        desktop: { min: "1025px" },
+      },
     },
   },
   plugins: [],
