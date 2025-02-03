@@ -13,7 +13,7 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        primary: "JetBrains Mono"
+        jetBrains: ['"JetBrains Mono"', 'monospace'], // Custom font family
       },
       screens: {
         small: { max: "440px" },
