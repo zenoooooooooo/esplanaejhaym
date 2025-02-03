@@ -20,7 +20,6 @@ const MyFace: React.FC<MyFaceProps> = ({ scale, position, rotation }) => {
         position={position}
         rotation={rotation}
       />
-     
     </>
   );
 };

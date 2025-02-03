@@ -2,6 +2,7 @@ import { useGLTF } from "@react-three/drei";
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
 interface SunProps {
   scale?: number;
@@ -21,11 +22,9 @@ const Sun: React.FC<SunProps> = ({
 
   useFrame(() => {
     if (sunRef.current) {
-      angle += 0.005;
-
+      angle += 0.007;
       const x = radius * Math.cos(angle);
       const z = radius * Math.sin(angle);
-
       sunRef.current.position.set(x, 0, z);
     }
   });
@@ -45,6 +44,15 @@ const Sun: React.FC<SunProps> = ({
           position={position}
           castShadow
         />
+        {/* <EffectComposer>
+          <Bloom
+            intensity={5}
+            luminanceThreshold={0}
+            luminanceSmoothing={0.9}
+            height={300}
+    
+          />
+        </EffectComposer> */}
       </group>
     </>
   );
