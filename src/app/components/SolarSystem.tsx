@@ -5,7 +5,7 @@ import CanvasLoader from "./CanvasLoader";
 import { Vector3 } from "three";
 import Sun from "./Sun";
 import MyFace from "./MyFace";
-import { PerspectiveCamera } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 
 const SolarSystem = () => {
   return (
@@ -19,6 +19,7 @@ const SolarSystem = () => {
           rotation={[0, 0.7, 0]}
         />
         <PerspectiveCamera position={[0, 0, 1]} makeDefault />
+        <OrbitControls />
       </Suspense>
     </Canvas>
   );

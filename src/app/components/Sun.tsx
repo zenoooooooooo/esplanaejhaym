@@ -17,12 +17,12 @@ const Sun: React.FC<SunProps> = ({
 }) => {
   const { scene } = useGLTF("./models/Sun.glb");
   const sunRef = useRef<THREE.Group>(null);
-  const radius = 50;
+  const radius = 100;
   let angle = 0;
 
   useFrame(() => {
     if (sunRef.current) {
-      angle += 0.007;
+      angle += 0.001;
       const x = radius * Math.cos(angle);
       const z = radius * Math.sin(angle);
       sunRef.current.position.set(x, 0, z);
@@ -39,20 +39,39 @@ const Sun: React.FC<SunProps> = ({
           rotation={rotation}
         />
         <directionalLight
-          intensity={0.5}
-          color={"#ffcc00"}
+          intensity={0.2}
+          color={"yellow"}
           position={position}
           castShadow
         />
-        {/* <EffectComposer>
-          <Bloom
-            intensity={5}
-            luminanceThreshold={0}
-            luminanceSmoothing={0.9}
-            height={300}
-    
+        <mesh scale={scale * 2} position={position}>
+          <sphereGeometry args={[10, 32, 32]} />
+          <meshBasicMaterial
+            color="yellow"
+            transparent={true}
+            opacity={0.3}
+            depthWrite={false}
+            blending={THREE.AdditiveBlending}
           />
-        </EffectComposer> */}
+          <mesh scale={scale * 1.5} position={position}>
+            <sphereGeometry args={[1, 32, 32]} />
+            <meshBasicMaterial
+              color="orange"
+              transparent={true}
+              opacity={0.3}
+              depthWrite={false}
+              blending={THREE.AdditiveBlending}
+            />
+          </mesh>
+        </mesh>
+        <EffectComposer>
+          <Bloom
+            intensity={1000}
+            luminanceThreshold={0}
+            luminanceSmoothing={10}
+            height={300}
+          />
+        </EffectComposer>
       </group>
     </>
   );
