@@ -22,7 +22,7 @@ const Sun: React.FC<SunProps> = ({
 
   useFrame(() => {
     if (sunRef.current) {
-      angle += 0.001;
+      angle += 0.005;
       const x = radius * Math.cos(angle);
       const z = radius * Math.sin(angle);
       sunRef.current.position.set(x, 0, z);

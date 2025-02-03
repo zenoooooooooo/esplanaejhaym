@@ -14,7 +14,8 @@ export default {
       },
       fontFamily: {
         primary: "JetBrains Mono"
-      }
+      },
+      
     },
   },
   plugins: [],
