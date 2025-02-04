@@ -7,27 +7,7 @@ import { CiPause1, CiPlay1 } from "react-icons/ci";
 
 const Nav = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
-  const [music, setMusic] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  useEffect(() => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio("/audio/weightless.mp3");
-      audioRef.current.loop = true;
-      audioRef.current.volume = 1;
-    }
-
-    if (music) {
-      audioRef.current.play().catch(() => {}); // Catch autoplay issues
-    } else {
-      audioRef.current.pause();
-    }
-  }, [music]);
-
-  function toggleMusic(e: any) {
-    e.preventDefault();
-    setMusic((prev) => !prev);
-  }
 
   function toggleMenu() {
     setIsMenuActive((prev) => !prev);
@@ -75,11 +55,7 @@ const Nav = () => {
         </div>
       </nav>
 
-      <Button
-        text={music ? <CiPlay1 /> : <CiPause1 />}
-        onClick={toggleMusic}
-        className="absolute bottom-10 right-10 z-[9999] text-2xl"
-      />
+
     </>
   );
 };

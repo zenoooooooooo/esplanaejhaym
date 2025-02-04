@@ -1,16 +1,69 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { CiPause1, CiPlay1 } from "react-icons/ci";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
+import Button from "./Button";
 const Landing = () => {
-  const [headerText] = useTypewriter({
+  const [headerText, { isDelete }] = useTypewriter({
     words: [
       "Hi! My name is E-Jhay Esplana!",
-      "a Software Engineering student from the Philippines",
+      "a Software Engineering student",
       "Specializing in Full-Stack Web Development, Mobile Development, and Desktop Development",
     ],
     loop: true,
     typeSpeed: 80,
-    deleteSpeed: 50,
+    deleteSpeed: 10,
   });
+
+  const typingRef = useRef<HTMLAudioElement | null>(null);
+
+  const [music, setMusic] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio("/audio/weightless.mp3");
+      audioRef.current.loop = true;
+      audioRef.current.volume = 1;
+    }
+
+    if (music) {
+      audioRef.current.play().catch(() => {});
+    } else {
+      audioRef.current.pause();
+    }
+  }, [music]);
+
+  function toggleMusic(e: any) {
+    e.preventDefault();
+    setMusic((prev) => !prev);
+  }
+  useEffect(() => {
+    if (!typingRef.current) {
+      typingRef.current = new Audio("/audio/typingSound.mp3");
+      typingRef.current.volume = 0.5;
+      typingRef.current.addEventListener("timeupdate", function () {
+        const buffer = 0.44;
+        if (this.currentTime > this.duration - buffer) {
+          this.currentTime = 0;
+          this.play();
+        }
+      });
+    }
+
+    if (music && !isDelete) {
+      typingRef.current.play().catch(() => {});
+    } else {
+      typingRef.current.pause();
+      typingRef.current.currentTime = 0;
+    }
+
+    return () => {
+      if (typingRef.current) {
+        typingRef.current.pause();
+        typingRef.current.currentTime = 0;
+      }
+    };
+  }, [headerText, music]);
 
   return (
     <>
@@ -20,6 +73,11 @@ const Landing = () => {
           <Cursor cursorStyle="_" />
         </span>
       </section>
+      <Button
+        text={music ? <CiPlay1 /> : <CiPause1 />}
+        onClick={toggleMusic}
+        className="absolute bottom-10 right-10 z-[9999] text-2xl"
+      />
     </>
   );
 };
