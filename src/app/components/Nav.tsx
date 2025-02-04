@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { navLinks } from "../constants";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
@@ -8,16 +8,19 @@ import { CiPause1, CiPlay1 } from "react-icons/ci";
 const Nav = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [music, setMusic] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio("./audio/weightless.mp3");
-    audio.loop = true;
-    audio.volume = 1;
+    if (!audioRef.current) {
+      audioRef.current = new Audio("/audio/weightless.mp3");
+      audioRef.current.loop = true;
+      audioRef.current.volume = 1;
+    }
 
     if (music) {
-      audio.play();
-    } else if (!music) {
-      audio.pause();
+      audioRef.current.play().catch(() => {}); // Catch autoplay issues
+    } else {
+      audioRef.current.pause();
     }
   }, [music]);
 
@@ -71,6 +74,7 @@ const Nav = () => {
           </ul>
         </div>
       </nav>
+
       <Button
         text={music ? <CiPlay1 /> : <CiPause1 />}
         onClick={toggleMusic}
