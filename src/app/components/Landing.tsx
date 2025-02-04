@@ -3,7 +3,7 @@ import { CiPause1, CiPlay1 } from "react-icons/ci";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Button from "./Button";
 const Landing = () => {
-  const [headerText, { isDelete }] = useTypewriter({
+  const [headerText, { isDelete, isType }] = useTypewriter({
     words: [
       "Hi! My name is E-Jhay Esplana!",
       "a Software Engineering student",
@@ -50,7 +50,7 @@ const Landing = () => {
       });
     }
 
-    if (music && !isDelete) {
+    if (music && isType) {
       typingRef.current.play().catch(() => {});
     } else {
       typingRef.current.pause();
@@ -63,7 +63,7 @@ const Landing = () => {
         typingRef.current.currentTime = 0;
       }
     };
-  }, [headerText, music]);
+  }, [headerText, isType, music]);
 
   return (
     <>
