@@ -14,8 +14,8 @@ const Landing = () => {
 
   return (
     <>
-      <section className="flex justify-center absolute text-center desktop:top-1/3 desktop:left-1/2 left-20 right-20 mobile:bottom-30  bottom-20 z-[9999] desktop:text-[30px] tablet:text-[20px] mobile:text-[20px]">
-        <span>
+      <section className="flex justify-center absolute pointer-events-none text-center desktop:top-1/3 desktop:left-1/2 z-[9999] left-20 right-20 mobile:bottom-30  bottom-20  desktop:text-[30px] tablet:text-[20px] mobile:text-[20px]">
+        <span className="text-">
           {headerText}
           <Cursor cursorStyle="_" />
         </span>
