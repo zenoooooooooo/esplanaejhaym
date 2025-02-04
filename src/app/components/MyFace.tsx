@@ -12,7 +12,7 @@ interface MyFaceProps {
 
 const MyFace: React.FC<MyFaceProps> = ({ scale, position, rotation }) => {
   const { scene } = useGLTF("./models/MyFace.glb");
-  return (
+  return (  
     <>
       <primitive
         object={scene}
