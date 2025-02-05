@@ -23,7 +23,7 @@ const MyRoom: React.FC<MyRoomProps> = ({ scale, position, rotation }) => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
   const isDesktop = useMediaQuery({ minWidth: 1025 });
 
-  const [light, setLight] = useState(false);
+  const [light, setLight] = useState(true);
   useEffect(() => {
     const onPointerMove = (e: MouseEvent | TouchEvent) => {
       let clientX, clientY;
@@ -65,11 +65,14 @@ const MyRoom: React.FC<MyRoomProps> = ({ scale, position, rotation }) => {
     } else if (isDesktop) {
       window.addEventListener("mousemove", onPointerMove);
       window.addEventListener("click", toggleLight);
-      return () => {
-        window.removeEventListener("mousemove", onPointerMove);
-        window.removeEventListener("click", toggleLight);
-      };
     }
+    return () => {
+      window.removeEventListener("touchmove", onPointerMove);
+      window.removeEventListener("touchstart", toggleLight);
+
+      window.removeEventListener("mousemove", onPointerMove);
+      window.removeEventListener("click", toggleLight);
+    };
   }, [gl, camera, scene]);
 
   function toggleLight(e: MouseEvent | TouchEvent) {
@@ -95,6 +98,7 @@ const MyRoom: React.FC<MyRoomProps> = ({ scale, position, rotation }) => {
         visible={light}
         castShadow
       />
+      <ambientLight intensity={1}/>
     </>
   );
 };
