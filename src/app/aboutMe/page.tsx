@@ -9,7 +9,7 @@ import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import { MdFlashlightOff, MdFlashlightOn } from "react-icons/md";
 
 export default function AboutMe() {
-  const [light, setLight] = useState(true);
+  const [light, setLight] = useState(false);
   const [camPos, setCamPos] = useState(0);
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -22,17 +22,19 @@ export default function AboutMe() {
   }
 
   useEffect(() => {
-    if (isSmall && isMobile && isTablet) {
-      window.addEventListener("touchstart", toggleLight);
-    } else if (isDesktop) {
-      window.addEventListener("click", toggleLight);
-    }
-    return () => {
-      window.removeEventListener("touchstart", toggleLight);
-
-      window.removeEventListener("click", toggleLight);
+    const eventType = isSmall && isMobile && isTablet ? "touchstart" : "click";
+    const handleEvent = (e: MouseEvent | TouchEvent) => {
+      toggleLight(e);
     };
-  }, [light]);
+
+    if ((isSmall && isMobile && isTablet) || isDesktop) {
+      window.addEventListener(eventType, handleEvent);
+    }
+
+    return () => {
+      window.removeEventListener(eventType, handleEvent);
+    };
+  }, [isSmall, isMobile, isTablet, isDesktop, toggleLight]);
 
   return (
     <>
@@ -80,6 +82,13 @@ export default function AboutMe() {
           >
             <FaArrowAltCircleLeft />
           </button>
+        </span>
+        <span className="absolute top-10 right-10 text-2xl text-white">
+          {light ? (
+            <MdFlashlightOn onClick={toggleLight} />
+          ) : (
+            <MdFlashlightOff onClick={toggleLight} />
+          )}
         </span>
       </div>
     </>

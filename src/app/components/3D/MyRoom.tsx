@@ -23,7 +23,7 @@ const MyRoom: React.FC<MyRoomProps> = ({
   const { gl, camera } = useThree();
   const [hoveredObjectPosition, setHoveredObjectPosition] = useState<
     THREE.Vector3 | undefined
-  >(undefined);
+  >(new THREE.Vector3(0, 0, 0));
 
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -76,10 +76,6 @@ const MyRoom: React.FC<MyRoomProps> = ({
       window.removeEventListener("mousemove", onPointerMove);
     };
   }, [gl, camera, scene]);
-
-  function toggleLight(e: MouseEvent | TouchEvent | any) {
-    e.preventDefault();
-  }
 
   return (
     <>
