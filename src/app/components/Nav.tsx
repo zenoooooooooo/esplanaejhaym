@@ -4,6 +4,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
 import Button from "./Custom/Button";
 import { CiPause1, CiPlay1 } from "react-icons/ci";
+import Section from "./Custom/Section";
 
 const Nav = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -14,7 +15,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="p-12 absolute top-0 left-0 right-0 z-[9999]">
+      <Section className="p-12 absolute top-0 left-0 right-0 z-[9999]">
         <ul className="flex items-center">
           <span className="">
             <li className="desktop:text-[20px] tablet:text-[16px]">
@@ -53,7 +54,7 @@ const Nav = () => {
             ))}
           </ul>
         </div>
-      </nav>
+      </Section>
     </>
   );
 };
