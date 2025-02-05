@@ -2,12 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { navLinks } from "../constants";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
-import Button from "./Button";
+import Button from "./Custom/Button";
 import { CiPause1, CiPlay1 } from "react-icons/ci";
 
 const Nav = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
-
 
   function toggleMenu() {
     setIsMenuActive((prev) => !prev);
@@ -26,9 +25,10 @@ const Nav = () => {
             {navLinks.map((link) => (
               <li
                 key={link.href}
-                className="hover:underline desktop:text-[20px] tablet:text-[16px] mobile:hidden border-2 p-2 border-t-0 border-b-0"
+                className="group desktop:text-[20px] tablet:text-[16px] mobile:hidden border-2 p-2 border-t-0 border-b-0"
               >
                 <Link href={link.href}>{link.text}</Link>
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
               </li>
             ))}
           </div>
@@ -46,7 +46,7 @@ const Nav = () => {
             {navLinks.map((link) => (
               <li
                 key={link.href}
-                className="hover:underline desktop:text-[20px] tablet:text-[16px] px-0 my-2 text-right p-2"
+                className=" desktop:text-[20px] tablet:text-[16px] px-0 my-2 text-right p-2"
               >
                 <Link href={link.href}>{link.text}</Link>
               </li>
@@ -54,8 +54,6 @@ const Nav = () => {
           </ul>
         </div>
       </nav>
-
-
     </>
   );
 };

@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CiPause1, CiPlay1 } from "react-icons/ci";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import Button from "./Button";
+import Button from "./Custom/Button";
 const Landing = () => {
-  const [headerText, { isDelete, isType }] = useTypewriter({
+  const [headerText, { isType }] = useTypewriter({
     words: [
-      "Hi! My name is E-Jhay Esplana!",
+      "Hi, My name is E-Jhay Esplana!",
       "a Software Engineering student",
       "Specializing in Full-Stack Web Development, Mobile Development, and Desktop Development",
     ],
