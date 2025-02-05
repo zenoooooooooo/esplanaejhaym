@@ -6,13 +6,34 @@ import { Canvas, Vector3 } from "@react-three/fiber";
 import { CanvasLoader, MyRoom } from "../components";
 import { useMediaQuery } from "react-responsive";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { MdFlashlightOff, MdFlashlightOn } from "react-icons/md";
 
 export default function AboutMe() {
+  const [light, setLight] = useState(true);
   const [camPos, setCamPos] = useState(0);
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
   const isDesktop = useMediaQuery({ minWidth: 1025 });
+
+  function toggleLight(e: MouseEvent | TouchEvent | any) {
+    e.preventDefault();
+    setLight((prev) => !prev);
+  }
+
+  useEffect(() => {
+    if (isSmall && isMobile && isTablet) {
+      window.addEventListener("touchstart", toggleLight);
+    } else if (isDesktop) {
+      window.addEventListener("click", toggleLight);
+    }
+    return () => {
+      window.removeEventListener("touchstart", toggleLight);
+
+      window.removeEventListener("click", toggleLight);
+    };
+  }, [light]);
+
   return (
     <>
       <Canvas
@@ -25,7 +46,12 @@ export default function AboutMe() {
         }}
       >
         <Suspense fallback={<CanvasLoader />}>
-          <MyRoom scale={4} position={[1, -1, -13]} rotation={[0.5, -0.8, 0]} />
+          <MyRoom
+            scale={4}
+            position={[1, -1, -13]}
+            rotation={[0.5, -0.8, 0]}
+            light={light}
+          />
         </Suspense>
         <PerspectiveCamera
           makeDefault

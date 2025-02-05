@@ -1,16 +1,23 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useGLTF } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { useFrame, useThree, Vector3 } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
+import { MdFlashlightOff, MdFlashlightOn } from "react-icons/md";
 interface MyRoomProps {
   scale?: number;
   position?: number[];
   rotation?: number[];
+  light: boolean;
 }
 
-const MyRoom: React.FC<MyRoomProps> = ({ scale, position, rotation }) => {
+const MyRoom: React.FC<MyRoomProps> = ({
+  scale,
+  position,
+  rotation,
+  light,
+}) => {
   const { scene } = useGLTF("./models/MyRoom.glb");
   const raycaster = new THREE.Raycaster();
   const { gl, camera } = useThree();
@@ -23,7 +30,6 @@ const MyRoom: React.FC<MyRoomProps> = ({ scale, position, rotation }) => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
   const isDesktop = useMediaQuery({ minWidth: 1025 });
 
-  const [light, setLight] = useState(true);
   useEffect(() => {
     const onPointerMove = (e: MouseEvent | TouchEvent) => {
       let clientX, clientY;
@@ -61,23 +67,18 @@ const MyRoom: React.FC<MyRoomProps> = ({ scale, position, rotation }) => {
 
     if (isSmall && isMobile && isTablet) {
       window.addEventListener("touchmove", onPointerMove);
-      window.addEventListener("touchstart", toggleLight);
     } else if (isDesktop) {
       window.addEventListener("mousemove", onPointerMove);
-      window.addEventListener("click", toggleLight);
     }
     return () => {
       window.removeEventListener("touchmove", onPointerMove);
-      window.removeEventListener("touchstart", toggleLight);
 
       window.removeEventListener("mousemove", onPointerMove);
-      window.removeEventListener("click", toggleLight);
     };
   }, [gl, camera, scene]);
 
-  function toggleLight(e: MouseEvent | TouchEvent) {
+  function toggleLight(e: MouseEvent | TouchEvent | any) {
     e.preventDefault();
-    setLight((prev) => !prev);
   }
 
   return (
@@ -98,7 +99,6 @@ const MyRoom: React.FC<MyRoomProps> = ({ scale, position, rotation }) => {
         visible={light}
         castShadow
       />
-      <ambientLight intensity={1}/>
     </>
   );
 };
