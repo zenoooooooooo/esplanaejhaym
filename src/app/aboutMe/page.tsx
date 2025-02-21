@@ -1,12 +1,10 @@
 "use client";
-import { Suspense, useEffect, useRef, useState } from "react";
-
+import { Suspense, useEffect, useState } from "react";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas, Vector3 } from "@react-three/fiber";
-import { CanvasLoader, MyRoom } from "../components";
+import { CanvasLoader, MusicToggle, MyRoom } from "../components";
 import { useMediaQuery } from "react-responsive";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
-import { MdFlashlightOff, MdFlashlightOn } from "react-icons/md";
+
 
 export default function AboutMe() {
   const [light, setLight] = useState(false);
@@ -22,17 +20,14 @@ export default function AboutMe() {
   }
 
   useEffect(() => {
-    const eventType = isSmall && isMobile && isTablet ? "touchstart" : "click";
-    const handleEvent = (e: MouseEvent | TouchEvent) => {
+    const handleEvent = (e: MouseEvent) => {
       toggleLight(e);
     };
 
-    if ((isSmall && isMobile && isTablet) || isDesktop) {
-      window.addEventListener(eventType, handleEvent);
-    }
+    window.addEventListener("click", handleEvent);
 
     return () => {
-      window.removeEventListener(eventType, handleEvent);
+      window.removeEventListener("click", handleEvent);
     };
   }, [isSmall, isMobile, isTablet, isDesktop, toggleLight]);
 
@@ -66,31 +61,7 @@ export default function AboutMe() {
           enablePan={false}
         />
       </Canvas>
-      <div className="desktop:hidden text-4xl text-gray-700 x-[9999]">
-        <span className="absolute top-20 right-10 ">
-          <button
-            onClick={() => setCamPos(camPos - 0.01)}
-            disabled={camPos <= -0.2}
-          >
-            <FaArrowAltCircleRight />
-          </button>
-        </span>
-        <span className="absolute top-20 left-10">
-          <button
-            onClick={() => setCamPos(camPos + 0.01)}
-            disabled={camPos >= 0.2}
-          >
-            <FaArrowAltCircleLeft />
-          </button>
-        </span>
-        <span className="absolute top-10 right-10 text-2xl text-white">
-          {light ? (
-            <MdFlashlightOn onClick={toggleLight} />
-          ) : (
-            <MdFlashlightOff onClick={toggleLight} />
-          )}
-        </span>
-      </div>
+
     </>
   );
 }

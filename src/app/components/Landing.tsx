@@ -18,21 +18,6 @@ const Landing = () => {
   const typingRef = useRef<HTMLAudioElement | null>(null);
 
   const [music, setMusic] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio("/audio/weightless.mp3");
-      audioRef.current.loop = true;
-      audioRef.current.volume = 1;
-    }
-
-    if (music) {
-      audioRef.current.play().catch(() => {});
-    } else {
-      audioRef.current.pause();
-    }
-  }, [music]);
 
   function toggleMusic(e: any) {
     e.preventDefault();
@@ -75,7 +60,7 @@ const Landing = () => {
         </span>
       </Section>
       <Button
-        text={music ? <CiPlay1 /> : <CiPause1 />}
+        text={music ? <CiPause1 /> : <CiPlay1 />}
         onClick={toggleMusic}
         className="absolute bottom-10 right-10 z-[9999] text-2xl"
       />

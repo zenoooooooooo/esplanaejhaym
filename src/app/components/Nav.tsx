@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { navLinks } from "../constants";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
-import Button from "./Custom/Button";
-import { CiPause1, CiPlay1 } from "react-icons/ci";
 import Section from "./Custom/Section";
 
 const Nav = () => {
@@ -26,7 +24,7 @@ const Nav = () => {
             {navLinks.map((link) => (
               <li
                 key={link.href}
-                className="group desktop:text-[20px] tablet:text-[16px] mobile:hidden border-2 p-2 border-t-0 border-b-0"
+                className="group desktop:text-[20px] tablet:text-[16px] mobile:hidden p-2"
               >
                 <Link href={link.href}>{link.text}</Link>
                 <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
