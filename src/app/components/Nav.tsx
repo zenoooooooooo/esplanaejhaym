@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { navLinks } from "../constants";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
+import { navLinks } from "../constants";
 import Section from "./Custom/Section";
 
-const Nav = () => {
+const Nav = ({ absolute = false }) => {
   const [isMenuActive, setIsMenuActive] = useState(false);
 
   function toggleMenu() {
@@ -13,7 +13,11 @@ const Nav = () => {
 
   return (
     <>
-      <Section className="p-12 absolute top-0 left-0 right-0 z-[9999]">
+      <Section
+        className={`p-12 top-0 left-0 right-0 z-[9999] ${
+          absolute ? "absolute" : "relative"
+        }`}
+      >
         <ul className="flex items-center">
           <span className="">
             <li className="desktop:text-[20px] tablet:text-[16px]">

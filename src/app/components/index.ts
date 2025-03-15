@@ -7,3 +7,5 @@ export { default as SolarSystem } from "./3D/SolarSystem";
 export { default as Nav } from "./Nav";
 export { default as Landing } from "./Landing";
 export { default as Button } from "./Custom/Button";
+export { default as Section } from "./Custom/Section";
+export { default as SideBar } from "./SideBar";
