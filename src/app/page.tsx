@@ -6,11 +6,11 @@ export default function Home() {
 
   return (
     <>
-      <main className="bg-black text-white font-jetBrains">
+      <div className="bg-black text-white font-jetBrains">
         <Nav absolute/>
         <Landing />
         <SolarSystem />
-      </main>
+      </div>
     </>
   );
 }
