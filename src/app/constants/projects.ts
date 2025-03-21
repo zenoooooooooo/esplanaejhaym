@@ -1,5 +1,3 @@
-import { title } from "process";
-
 const projects: IProjects[] = [
   {
     title: "Facebook Messenger Chatbot",
@@ -83,16 +81,107 @@ const projects: IProjects[] = [
     description:
       "I created a BMI calculation program for my classmates for one of my commissions. This program doesn’t just calculate your BMI—it also lets you keep track of it over time. You can log your BMI, see how it changes, and even look back at your health status on different dates. It’s a simple, user-friendly tool that helps you stay on top of your health and see your progress over time.",
     year: "2024",
-    technologies: [
-      "Java",
-      "Java Swing",
-      "Apache Maven",
-      "MariaDB",
-    ],
+    technologies: ["Java", "Java Swing", "Apache Maven", "MariaDB"],
     category: "Desktop Development",
     completed: true,
     company: "School Project",
     link: "https://github.com/zenoooooooooo/BMI-Tracking-System",
+  },
+  {
+    title: "Web Based BMI Calculator",
+    description:
+      "This is the BMI Checker I programmed during my participation in the TVL Week in Cainta Senior High School's Speed Coding Competition 2024 ",
+    year: "2024",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    category: "Web Development",
+    completed: true,
+    company: "School Project",
+    link: "https://github.com/zenoooooooooo/Web-based-BMI-Calculator",
+  },
+  {
+    title: "ZenoBot",
+    description:
+      "New version of the Facebook Messenger ChatBot with commands for various activities, such as playing mini-games, browsing Wikipedia articles, etc.",
+    year: "2024",
+    technologies: ["TypeScript", "Node.js", "fca-unofficial", "c3c-fbstate"],
+    category: "CLI Project",
+    completed: true,
+    company: "Personal Project",
+    link: "https://github.com/zenoooooooooo/Web-based-BMI-Calculator",
+  },
+  {
+    title: "Task Tracker",
+    description:
+      "This application is a refresher project using MERN Stack for my application in ALPHA",
+    year: "2024",
+    technologies: [
+      "MongoDB",
+      "Express.js",
+      "Next.js",
+      "Node.js",
+      "TailwindCSS",
+    ],
+    category: "Web Development",
+    completed: true,
+    company:
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+    link: "https://github.com/zenoooooooooo/tasktracker_esplana_be",
+  },
+  {
+    title: "Event Attendance Form",
+    description:
+      "Event Attendance Form for ICT Week in STI Ortigas Cainta 2024",
+    year: "2024",
+    technologies: ["Next.js", "TailwindCSS", "TypeScript", "MongoDB"],
+    category: "Web Development",
+    completed: true,
+    company:
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+  },
+  {
+    title: "UMAK Registration Form",
+    description:
+      "Registration form for UMAK Competition for students in STI Ortigas Cainta",
+    year: "2024",
+    technologies: ["Next.js", "TailwindCSS", "TypeScript", "MongoDB"],
+    category: "Web Development",
+    completed: true,
+    company:
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+  },
+  {
+    title: "ICT Week Registration Form",
+    description:
+      "Registration form for ICT Week competitions for students in STI Ortigas Cainta",
+    year: "2024",
+    technologies: ["Next.js", "TailwindCSS", "TypeScript", "MongoDB"],
+    category: "Web Development",
+    completed: true,
+    company:
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+  },
+  {
+    title: "ICT Week Registration Dashboard",
+    description: "Web Dashboard of list of ICT Week contestants",
+    year: "2024",
+    technologies: ["Next.js", "TailwindCSS", "TypeScript", "MongoDB"],
+    category: "Web Development",
+    completed: true,
+    company:
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+    link: "https://alpha-dash-board.vercel.app",
+  },
+  {
+    title: "ALPHA Official Website",
+    description:
+      "The Official Website of ALPHA: Alliance of Leading Programmers through Heuristic Adaptation.",
+    year: "2024",
+    technologies: ["Next.js", "TailwindCSS", "TypeScript", "MongoDB"],
+    category: "Web Development",
+    completed: true,
+    company:
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+    link: "https://alpha-official2024.vercel.app/",
   },
 ];
 
