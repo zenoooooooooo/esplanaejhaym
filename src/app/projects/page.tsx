@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Nav, Section, SideBar } from "../components";
+import { Nav, Section } from "../components";
 
 
 const Projects = () => {
