@@ -183,6 +183,47 @@ const projects: IProjects[] = [
       "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
     link: "https://alpha-official2024.vercel.app/",
   },
+  {
+    title: "Task Tracker Mobile App",
+    description:
+      "The Official Website of ALPHA: Alliance of Leading Programmers through Heuristic Adaptation.",
+    year: "2024",
+    technologies: ["React Native", "Firebase", "TypeScript", "TailwindCSS"],
+    category: "Mobile Development",
+    completed: false,
+    company: "Personal Project",
+    link: "https://github.com/zenoooooooooo/TaskTracker",
+  },
+  {
+    title: "Task Tracker Mobile App",
+    description: "Customizable Chatbot for Discord",
+    year: "2025",
+    technologies: ["Python", "PyCord"],
+    category: "CLI Project",
+    completed: true,
+    company: "Personal Project",
+    link: "https://github.com/zenoooooooooo/ZenoBot-discord",
+  },
+  {
+    title: "BlogCMS",
+    description: "Blog Content Management System with Social Media Functions.",
+    year: "2025",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Apache Server", "XAMPP"],
+    category: "Web Development",
+    completed: false,
+    company: "Personal Project",
+    link: "https://github.com/zenoooooooooo/BlogCMS",
+  },
+  {
+    title: "esplanaejhaym",
+    description: "Career Portfolio",
+    year: "2025",
+    technologies: ["Next.js", "TailwindCSS", "TypeScript", "Three.js", "React Three Fiber", "React Three Drei"],
+    category: "Web Development",
+    completed: true,
+    company: "Personal Project",
+    link: "https://github.com/zenoooooooooo/esplanaejhaym",
+  },
 ];
 
 export default projects;
