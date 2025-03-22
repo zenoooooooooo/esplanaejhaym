@@ -1,8 +1,8 @@
 "use client";
 import { Suspense, useEffect, useState } from "react";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { Canvas, Vector3 } from "@react-three/fiber";
-import { CanvasLoader, MusicToggle, MyRoom } from "../components";
+import { Canvas } from "@react-three/fiber";
+import { CanvasLoader, MyRoom } from "../components";
 import { useMediaQuery } from "react-responsive";
 
 
