@@ -9,7 +9,7 @@ const Projects = () => {
       <div className="bg-black text-white font-jetBrains">
         <Nav />
         <Section className="p-12 h-[100%]" tag="main">
-          <h1 className="text-4xl m-4">Projects</h1>
+          <h1 className="text-4xl m-4">Timeline of my Projects</h1>
           <hr className="text-white m-4" />
           {projects.map((project, index) => (
             <Card
