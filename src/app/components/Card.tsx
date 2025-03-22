@@ -1,5 +1,37 @@
 import React from "react";
 
+const technologyStyles: Record<string, { textColor: string; bgColor: string }> =
+  {
+
+    HTML: { textColor: "#FFFFFF", bgColor: "#E34F26" },
+    CSS: { textColor: "#FFFFFF", bgColor: "#1572B6" },
+
+    JavaScript: { textColor: "#000000", bgColor: "#F7DF1E" },
+    TypeScript: { textColor: "#FFFFFF", bgColor: "#3178C6" },
+    PHP: { textColor: "#FFFFFF", bgColor: "#777BB4" },
+    Java: { textColor: "#FFFFFF", bgColor: "#D91E18" },
+    Python: { textColor: "#FFFFFF", bgColor: "#3776AB" },
+
+    "Node.js": { textColor: "#FFFFFF", bgColor: "#339933" },
+    "React.js": { textColor: "#000000", bgColor: "#61DAFB" },
+    "Next.js": { textColor: "#FFFFFF", bgColor: "#000000" },
+    "Vue.js": { textColor: "#FFFFFF", bgColor: "#4FC08D" },
+    "Express.js": { textColor: "#FFFFFF", bgColor: "#404040" },
+    "React Native": { textColor: "#000000", bgColor: "#61DAFB" },
+    TailwindCSS: { textColor: "#FFFFFF", bgColor: "#38B2AC" },
+    Firebase: { textColor: "#000000", bgColor: "#FFCA28" },
+
+    MongoDB: { textColor: "#FFFFFF", bgColor: "#47A248" },
+    MySQL: { textColor: "#FFFFFF", bgColor: "#00758F" },
+    MariaDB: { textColor: "#FFFFFF", bgColor: "#003545" },
+  };
+
+const defaultStyle = { textColor: "#FFFFFF", bgColor: "#4A5568" };
+
+const getTechnologyStyle = (tech: string) => {
+  return technologyStyles[tech] || defaultStyle;
+};
+
 const Card: React.FC<IProjects> = ({
   title,
   description,
@@ -20,14 +52,26 @@ const Card: React.FC<IProjects> = ({
       <div className="mb-2">
         <span className="font-semibold text-gray-500">Technologies:</span>
         <div className="flex flex-wrap gap-2 mt-1">
-          {technologies.map((tech, index) => (
-            <span
-              key={index}
-              className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full"
-            >
-              {tech}
-            </span>
-          ))}
+          {technologies.map((tech) => {
+            const { textColor, bgColor } = getTechnologyStyle(tech);
+
+            return (
+              <span
+                key={tech}
+                style={{
+                  color: textColor,
+                  backgroundColor: bgColor,
+                  padding: "4px 8px",
+                  borderRadius: "6px",
+                  fontWeight: "bold",
+                  marginRight: "8px",
+                  display: "inline-block",
+                }}
+              >
+                {tech}
+              </span>
+            );
+          })}
         </div>
       </div>
       <div className="text-gray-400 mb-2">
