@@ -21,7 +21,7 @@ const Nav = ({ absolute = false }) => {
         <ul className="flex items-center">
           <span className="">
             <li className="desktop:text-[20px] tablet:text-[16px]">
-              Career Portfolio
+              <Link href="/">Career Portfolio</Link>
             </li>
           </span>
           <div className="ml-auto flex items-center gap-8">

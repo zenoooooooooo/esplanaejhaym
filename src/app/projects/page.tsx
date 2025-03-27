@@ -20,7 +20,7 @@ const Projects = () => {
   const [visible, setVisible] = useState(false);
   return (
     <>
-      <div className="bg-black h-full text-white font-jetBrains">
+      <div className="bg-black min-h-screen h-full text-white font-jetBrains">
         <Nav />
         <Section
           className="desktop:p-12 tablet:p-4 mobile:p-2 h-[100%]"
