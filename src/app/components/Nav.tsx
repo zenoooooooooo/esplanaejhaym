@@ -28,7 +28,7 @@ const Nav = ({ absolute = false }) => {
             {navLinks.map((link) => (
               <li
                 key={link.href}
-                className="group desktop:text-[20px] tablet:text-[16px] mobile:hidden p-2"
+                className="group desktop:text-[20px] tablet:text-[16px] mobile:hidden small:hidden p-2"
               >
                 <Link href={link.href}>{link.text}</Link>
                 <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>

@@ -13,12 +13,12 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        jetBrains: ['"JetBrains Mono"', 'monospace'], // Custom font family
+        jetBrains: ['"JetBrains Mono"', "monospace"],
       },
       screens: {
         small: { max: "440px" },
-        mobile: { max: "768px" },
-        tablet: { min: "768px", max: "1024px" },
+        mobile: { min: "441px", max: "767px" },
+        tablet: { min: "769px", max: "1024px" },
         desktop: { min: "1025px" },
       },
     },

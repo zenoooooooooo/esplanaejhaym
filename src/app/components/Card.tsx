@@ -2,7 +2,6 @@ import React from "react";
 
 const technologyStyles: Record<string, { textColor: string; bgColor: string }> =
   {
-
     HTML: { textColor: "#FFFFFF", bgColor: "#E34F26" },
     CSS: { textColor: "#FFFFFF", bgColor: "#1572B6" },
 
@@ -75,16 +74,16 @@ const Card: React.FC<IProjects> = ({
         </div>
       </div>
       <div className="text-gray-400 mb-2">
-        <span className="font-semibold text-gray-500">Category:</span>
+        <span className="font-semibold text-gray-500">Category: </span>
         {category}
       </div>
       <div className="text-gray-400 mb-2">
-        <span className="font-semibold text-gray-500">Completed:</span>
+        <span className="font-semibold text-gray-500">Completed: </span>
         {completed ? "Yes" : "No"}
       </div>
       {company && (
         <div className="text-gray-400 mb-2">
-          <span className="font-semibold text-gray-500">Company:</span>
+          <span className="font-semibold text-gray-500">Company: </span>
           {company}
         </div>
       )}
