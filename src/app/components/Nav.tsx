@@ -5,10 +5,10 @@ import { navLinks } from "../constants";
 import Section from "./Custom/Section";
 
 const Nav = ({ absolute = false }) => {
-  const [isMenuActive, setIsMenuActive] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   function toggleMenu() {
-    setIsMenuActive((prev) => !prev);
+    setVisible((prev) => !prev);
   }
 
   return (
@@ -41,8 +41,8 @@ const Nav = ({ absolute = false }) => {
           />
         </ul>
         <div
-          className={`overflow-hidden transition-max-height duration-300 ease-in-out ${
-            isMenuActive ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+          className={` overflow-hidden transition-max-height duration-300 ease-in-out ${
+            visible ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <ul>
