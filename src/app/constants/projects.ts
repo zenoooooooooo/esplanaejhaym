@@ -114,7 +114,7 @@ const projects: IProjects[] = [
     category: "Web Development",
     completed: true,
     company:
-      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation",
     link: "https://github.com/zenoooooooooo/tasktracker_esplana_be",
   },
   {
@@ -126,7 +126,7 @@ const projects: IProjects[] = [
     category: "Web Development",
     completed: true,
     company:
-      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation",
   },
   {
     title: "UMAK Registration Form",
@@ -137,7 +137,7 @@ const projects: IProjects[] = [
     category: "Web Development",
     completed: true,
     company:
-      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation",
   },
   {
     title: "ICT Week Registration Form",
@@ -148,7 +148,7 @@ const projects: IProjects[] = [
     category: "Web Development",
     completed: true,
     company:
-      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation",
   },
   {
     title: "ICT Week Registration Dashboard",
@@ -158,7 +158,7 @@ const projects: IProjects[] = [
     category: "Web Development",
     completed: true,
     company:
-      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation",
     link: "https://alpha-dash-board.vercel.app",
   },
   {
@@ -170,13 +170,13 @@ const projects: IProjects[] = [
     category: "Web Development",
     completed: true,
     company:
-      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation. ",
+      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation",
     link: "https://alpha-official2024.vercel.app/",
   },
   {
     title: "Task Tracker Mobile App",
     description:
-      "The Official Website of ALPHA: Alliance of Leading Programmers through Heuristic Adaptation.",
+      "Task Tracker App using React Native and Firebase for BaaS",
     year: "2024",
     technologies: ["React Native", "Firebase", "TypeScript", "TailwindCSS"],
     category: "Mobile Development",
