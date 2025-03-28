@@ -73,7 +73,7 @@ const Landing = () => {
 
       <Link
         href="/aboutMe"
-        className="hidden desktop:block absolute bottom-24 right-10 z-[9999] text-2xl"
+        className="absolute bottom-24 right-10 z-[9999] text-2xl"
       >
         <CiUser />
       </Link>
