@@ -1,7 +1,14 @@
 "use client";
 import React from "react";
-import { Nav, Section, Header, Skills, Education } from "../components";
-
+import {
+  Nav,
+  Section,
+  Header,
+  Skills,
+  Education,
+  Certifications,
+  Experience,
+} from "../components";
 
 const Resume = () => {
   return (
@@ -9,8 +16,9 @@ const Resume = () => {
       <Nav />
       <Header />
       <Education />
+      <Certifications />
       <Skills />
-
+      <Experience />
     </Section>
   );
 };

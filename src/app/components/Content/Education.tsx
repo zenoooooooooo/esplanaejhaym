@@ -38,10 +38,10 @@ const education = [
 export default function Education() {
   return (
     <Section className="px-6 py-12 bg-black text-white min-h-[80vh]">
-      <h2 className="text-4xl font-bold text-center mb-10 text-blue-300">
-        Education
-      </h2>
-      <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-2 gap-8 px-4 desktop:px-20">
+      <h1 className="text-5xl font-bold text-blue-400 flex items-center justify-center gap-3">
+        <FaGraduationCap className="text-blue-400 text-6xl" /> Education
+      </h1>
+      <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-2 gap-8 px-4 desktop:px-20 mt-10">
         {education.map((edu, index) => (
           <div
             key={index}

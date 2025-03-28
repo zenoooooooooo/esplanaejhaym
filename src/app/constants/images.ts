@@ -1,4 +1,4 @@
-const images = [
+const images: IImages[] = [
     {
         src: "/images/profile.jpg",
         name: "Profile",
