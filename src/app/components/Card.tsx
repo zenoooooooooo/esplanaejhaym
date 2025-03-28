@@ -44,7 +44,7 @@ const Card: React.FC<IProjects> = ({
 }) => {
   return (
     <Section
-      className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg transition-all duration-300 transform hover:shadow-xl bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 hover:border-blue-500 m-4 "
+      className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg transition-all duration-300 transform  bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 hover:shadow-[0px_0px_40px_8px_rgba(59,130,246,0.7)]  m-4 "
       tag="section"
     >
       <h1 className="text-2xl font-bold text-blue-400 mb-2 transition-colors duration-300 hover:text-blue-300">

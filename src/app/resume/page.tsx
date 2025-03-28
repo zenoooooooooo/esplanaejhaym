@@ -38,7 +38,7 @@ const Resume = () => {
               transition-all duration-150 transform hover:shadow-[0px_0px_40px_8px_rgba(59,130,246,0.7)] 
               hover:bg-gradient-to-t hover:from-gray-900 hover:to-gray-800  text-white px-8 py-4 flex items-center gap-3 text-lg font-semibold"
         >
-          <FaProjectDiagram className="text-xl" />
+          <FaProjectDiagram className="text-xl animate-pulse" />
           See Projects
         </Link>
       </Section>

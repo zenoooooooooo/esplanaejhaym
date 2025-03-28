@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Nav, Section, Card } from "../components";
 import { projects } from "../constants";
-import { FaFilter } from "react-icons/fa";
+import { FaFilter, FaProjectDiagram } from "react-icons/fa";
 
 const companies = [
   { title: "Personal Projects", subtitle: "Personal Project" },
@@ -27,7 +27,8 @@ const Projects = () => {
           tag="main"
         >
           <div className="flex items-center m-0 justify-between">
-            <h1 className="small:text-[20px] mobile:text-2xl tablet:text-[30px] desktop:text-4xl m-4">
+            <h1 className="text-5xl font-bold text-blue-400 small:text-[20px] flex items-center justify-center gap-3 mobile:text-2xl tablet:text-[30px] desktop:text-4xl m-4">
+              <FaProjectDiagram className="text-6xl text-blue-400 animate-pulse" />
               Timeline - {company}
             </h1>
 

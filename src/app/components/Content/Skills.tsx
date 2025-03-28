@@ -93,10 +93,10 @@ const skills = [
     items: [
       { name: "Java", icon: <DiJava className="text-red-600" /> },
       { name: "Python", icon: <SiPython className="text-blue-400" /> },
-      { name: "C++", icon: <SiCplusplus className="text-blue-600" /> },
-      { name: "C#", icon: <FaDatabase className="text-purple-400" /> },
-      { name: "PHP", icon: <SiPhp className="text-indigo-400" /> },
       { name: "C", icon: <SiC className="text-gray-400" /> },
+      { name: "C#", icon: <FaDatabase className="text-purple-400" /> },
+      { name: "C++", icon: <SiCplusplus className="text-blue-600" /> },
+      { name: "PHP", icon: <SiPhp className="text-indigo-400" /> },
     ],
   },
   {
@@ -130,7 +130,7 @@ const Skills = () => {
   return (
     <Section className="text-center py-10 min-h-[80vh]" tag="section">
       <h1 className="text-5xl font-bold text-blue-400 flex items-center justify-center gap-3">
-        <FaTools className="text-blue-400 text-6xl" /> Technical Skills
+        <FaTools className="text-6xl text-blue-400 animate-pulse" /> Technical Skills
       </h1>
       <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6 mt-10 px-4 tablet:px-10 desktop:px-20">
         {skills.map((group, index) => (
