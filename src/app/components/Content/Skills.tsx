@@ -128,7 +128,7 @@ const skills = [
 const Skills = () => {
   return (
     <Section className="text-center py-10 min-h-[80vh]" tag="section">
-      <h1 className="text-4xl font-bold text-blue-400">My Skills</h1>
+      <h1 className="text-4xl font-bold text-blue-400">Technical Skills</h1>
       <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6 mt-10 px-4 tablet:px-10 desktop:px-20">
         {skills.map((group, index) => (
           <div

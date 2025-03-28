@@ -8,8 +8,9 @@ const Resume = () => {
     <Section className="bg-black min-h-screen h-full text-white font-jetBrains">
       <Nav />
       <Header />
-      <Skills />
       <Education />
+      <Skills />
+
     </Section>
   );
 };
