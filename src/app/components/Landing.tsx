@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { CiPause1, CiPlay1 } from "react-icons/ci";
+import { CiLock, CiPause1, CiPlay1 } from "react-icons/ci";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Button from "./Custom/Button";
 import Section from "./Custom/Section";
+import Link from "next/link";
 const Landing = () => {
   const [headerText, { isType }] = useTypewriter({
     words: [
@@ -53,7 +54,10 @@ const Landing = () => {
 
   return (
     <>
-      <Section tag="main" className="flex justify-center absolute pointer-events-none text-center desktop:top-1/3 desktop:left-1/2 z-[9999] left-20 right-20 mobile:bottom-30  bottom-20  desktop:text-[30px] tablet:text-[20px] mobile:text-[20px]">
+      <Section
+        tag="main"
+        className="flex justify-center absolute pointer-events-none text-center desktop:top-1/3 desktop:left-1/2 z-[9999] left-20 right-20 mobile:bottom-30  bottom-20  desktop:text-[30px] tablet:text-[20px] mobile:text-[20px]"
+      >
         <span className="">
           {headerText}
           <Cursor cursorStyle="_" />
@@ -64,6 +68,12 @@ const Landing = () => {
         onClick={toggleMusic}
         className="absolute bottom-10 right-10 z-[9999] text-2xl"
       />
+      <Link
+        href="/aboutMe"
+        className="absolute bottom-24 right-10 z-[9999] text-2xl"
+      >
+        <CiLock />
+      </Link>
     </>
   );
 };
