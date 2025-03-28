@@ -6,12 +6,12 @@ const Header = () => {
     words: [
       "Hi! I'm E-Jhay Esplana\nIT Student | Full-Stack Developer\nPassionate Software Developer/Programmer focused on continuous growth. I aim to join dynamic teams, build exciting projects, and stay updated with the latest technologies. I see every day as a chance to improve, learn, and gain experience from industry mentors.",
     ],
-    typeSpeed: 15,
+    typeSpeed: 20,
   });
 
   return (
     <Section
-      className="bg-black text-white flex flex-col desktop:flex-row items-center min-h-screen justify-center  desktop:p-20 mobile:p-4"
+      className="bg-black text-white flex flex-col desktop:flex-row items-center min-h-[80vh] justify-center  desktop:p-20 mobile:p-4"
       tag="section"
     >
       <img

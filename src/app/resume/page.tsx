@@ -2,7 +2,6 @@
 import React from "react";
 import { Nav, Section, Header, Skills, Education } from "../components";
 
-import { useTypewriter } from "react-simple-typewriter";
 
 const Resume = () => {
   return (

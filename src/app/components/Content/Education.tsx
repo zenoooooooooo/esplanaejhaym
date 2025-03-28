@@ -1,4 +1,9 @@
-import { FaUniversity, FaSchool, FaGraduationCap, FaBook } from "react-icons/fa";
+import {
+  FaUniversity,
+  FaSchool,
+  FaGraduationCap,
+  FaBook,
+} from "react-icons/fa";
 import Section from "../Custom/Section";
 
 const education = [
@@ -32,19 +37,33 @@ const education = [
 
 export default function Education() {
   return (
-    <Section className="px-6 py-12 bg-black text-white">
-      <h2 className="text-4xl font-bold text-center mb-10 text-blue-300">Education</h2>
+    <Section className="px-6 py-12 bg-black text-white min-h-[80vh]">
+      <h2 className="text-4xl font-bold text-center mb-10 text-blue-300">
+        Education
+      </h2>
       <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-2 gap-8 px-4 desktop:px-20">
         {education.map((edu, index) => (
           <div
             key={index}
-            className="bg-gray-900 p-8 rounded-2xl shadow-lg flex flex-col items-center transition-all duration-300 transform hover:shadow-[0px_0px_20px_4px_rgba(59,130,246,0.5)] bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700"
+            className="bg-gray-900 p-8 rounded-2xl shadow-lg flex flex-col items-center transition-all duration-150 transform hover:shadow-[0px_0px_30px_6px_rgba(59,130,246,0.7)] bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700"
           >
-            <div className="mb-4">{edu.icon}</div>
-            <h3 className="text-2xl font-semibold text-blue-300">{edu.level}</h3>
-            <p className="text-lg text-gray-300 mt-2">{edu.school}</p>
-            {edu.degree && <p className="text-gray-400 italic">{edu.degree}</p>}
-            <p className="text-gray-400 mt-1">{edu.year}</p>
+            <div className="mb-4 transition-transform duration-150 hover:scale-110">
+              {edu.icon}
+            </div>
+            <h3 className="text-2xl font-semibold text-blue-300 transition-all duration-150 hover:text-blue-400">
+              {edu.level}
+            </h3>
+            <p className="text-lg text-gray-300 mt-2 transition-all duration-150 hover:text-white">
+              {edu.school}
+            </p>
+            {edu.degree && (
+              <p className="text-gray-300 italic transition-all duration-150 hover:text-blue-400">
+                {edu.degree}
+              </p>
+            )}
+            <p className="text-gray-400 mt-1 transition-all duration-150 hover:text-gray-200">
+              {edu.year}
+            </p>
           </div>
         ))}
       </div>

@@ -43,9 +43,16 @@ const Card: React.FC<IProjects> = ({
   link,
 }) => {
   return (
-    <Section className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg transition-all duration-300 transform hover:shadow-[0px_0px_20px_4px_rgba(59,130,246,0.5)] bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 m-4" tag="section">
-      <h1 className="text-2xl font-bold text-blue-400 mb-2">{title}</h1>
-      <p className="text-gray-300 mb-2">{description}</p>
+    <Section
+      className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg transition-all duration-300 transform hover:shadow-xl bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 hover:border-blue-500 m-4 "
+      tag="section"
+    >
+      <h1 className="text-2xl font-bold text-blue-400 mb-2 transition-colors duration-300 hover:text-blue-300">
+        {title}
+      </h1>
+      <p className="text-gray-300 mb-2 transition-colors duration-300 hover:text-gray-200">
+        {description}
+      </p>
       <div className="text-gray-400 mb-2">
         <span className="font-semibold text-gray-500">Year:</span> {year}
       </div>
@@ -64,9 +71,9 @@ const Card: React.FC<IProjects> = ({
                   padding: "4px 8px",
                   borderRadius: "6px",
                   fontWeight: "bold",
-                  marginRight: "8px",
                   display: "inline-block",
                 }}
+                className="transition-all duration-300 hover:brightness-110"
               >
                 {tech}
               </span>
@@ -74,16 +81,16 @@ const Card: React.FC<IProjects> = ({
           })}
         </div>
       </div>
-      <div className="text-gray-400 mb-2">
+      <div className="text-gray-400 mb-2 transition-colors duration-300 hover:text-gray-200">
         <span className="font-semibold text-gray-500">Category: </span>
         {category}
       </div>
-      <div className="text-gray-400 mb-2">
+      <div className="text-gray-400 mb-2 transition-colors duration-300 hover:text-gray-200">
         <span className="font-semibold text-gray-500">Completed: </span>
         {completed ? "Yes" : "No"}
       </div>
       {company && (
-        <div className="text-gray-400 mb-2">
+        <div className="text-gray-400 mb-2 transition-colors duration-300 hover:text-gray-200">
           <span className="font-semibold text-gray-500">Company: </span>
           {company}
         </div>
@@ -93,7 +100,7 @@ const Card: React.FC<IProjects> = ({
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block mt-4 text-blue-400 hover:text-blue-500 transition"
+          className="inline-block mt-4 text-blue-400 hover:text-blue-300 transition-colors duration-300 hover:underline"
         >
           View Project →
         </a>

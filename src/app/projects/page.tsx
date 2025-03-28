@@ -40,7 +40,7 @@ const Projects = () => {
               </h1>
 
               <div
-                className={`absolute right-0 mt-2 bg-black shadow-xl border border-gray-600 rounded-lg p-4 w-56 transition-all duration-300 ease-in-out ${
+                className={`z-[999] absolute right-0 mt-2 bg-black shadow-xl border border-gray-600 rounded-lg p-4 w-56 transition-all duration-300 ease-in-out ${
                   visible ? "max-h-auto opacity-100" : "max-h-0 opacity-0"
                 } overflow-hidden`}
               >
