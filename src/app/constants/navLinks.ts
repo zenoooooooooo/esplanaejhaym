@@ -1,7 +1,7 @@
 const navLinks: INavLinks[] = [
   {
-    href: "/aboutMe",
-    text: "About Me",
+    href: "/resume",
+    text: "Resume",
   },
   {
     href: "/projects",

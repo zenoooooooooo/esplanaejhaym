@@ -1,4 +1,5 @@
 import React from "react";
+import Section from "./Custom/Section";
 
 const technologyStyles: Record<string, { textColor: string; bgColor: string }> =
   {
@@ -42,7 +43,7 @@ const Card: React.FC<IProjects> = ({
   link,
 }) => {
   return (
-    <section className="bg-gray-800 text-white p-6 rounded-2xl shadow-lg border border-gray-700 m-4">
+    <Section className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg transition-all duration-300 transform hover:shadow-[0px_0px_20px_4px_rgba(59,130,246,0.5)] bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 m-4" tag="section">
       <h1 className="text-2xl font-bold text-blue-400 mb-2">{title}</h1>
       <p className="text-gray-300 mb-2">{description}</p>
       <div className="text-gray-400 mb-2">
@@ -97,7 +98,7 @@ const Card: React.FC<IProjects> = ({
           View Project →
         </a>
       )}
-    </section>
+    </Section>
   );
 };
 

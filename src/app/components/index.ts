@@ -9,3 +9,7 @@ export { default as Landing } from "./Landing";
 export { default as Button } from "./Custom/Button";
 export { default as Section } from "./Custom/Section";
 export { default as Card } from "./Card";
+
+export { default as Header } from "./Content/Header";
+export { default as Skills } from "./Content/Skills";
+export { default as Education } from "./Content/Education";

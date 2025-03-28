@@ -1,16 +1,16 @@
 "use client";
-import { SolarSystem, Nav, Landing } from "./components";
+import { SolarSystem, Nav, Landing, Section } from "./components";
 
 export default function Home() {
 
 
   return (
     <>
-      <div className="bg-black text-white font-jetBrains">
+      <Section className="bg-black text-white font-jetBrains">
         <Nav absolute/>
         <Landing />
         <SolarSystem />
-      </div>
+      </Section>
     </>
   );
 }
