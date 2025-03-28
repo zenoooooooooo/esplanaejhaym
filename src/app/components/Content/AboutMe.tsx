@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
 import Section from "../Custom/Section";
 import { images } from "../../constants";
 
+
 const AboutMe = () => {
+
+
   return (
     <Section className="tablet:bg-black mobile:bg-black  small:bg-black w-full h-[100vh] bg-transparent text-white font-jetBrains absolute z-[9999] top-0 overflow-auto">
       <div className="relative z-10 p-6 md:p-12 max-w-[100vw] mx-auto">
@@ -17,7 +21,7 @@ const AboutMe = () => {
             />
           </div>
           <div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
               Hello again, I'm E-Jhay Esplana
             </h1>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300 max-w-4xl mx-auto">
@@ -38,7 +42,7 @@ const AboutMe = () => {
             />
           </div>
           <div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
               Hobbies & Interests
             </h1>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300 max-w-4xl mx-auto">
@@ -77,7 +81,7 @@ const AboutMe = () => {
             />
           </div>
           <div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
               Reflections
             </h1>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300 max-w-4xl mx-auto">
@@ -104,13 +108,19 @@ const AboutMe = () => {
             />
           </div>
           <blockquote className="italic mt-8 text-xl md:text-2xl font-semibold text-gray-300">
-            <p>
+            <p className="mb-6">
               "If you spend your time chasing butterflies, they&apos;ll simply
               fly away. But if you spend your time building a beautiful garden,
               the butterflies will come. And if they don&apos;t, you still have
               a beautiful garden."
             </p>
+            <hr className="mx-auto w-[80%]" />
+            <p className="mt-6">A wise man</p>
           </blockquote>
+        </div>
+        <div className="desktop:hidden absolute bottom-5 text-[12px] right-5 text-gray-300">
+          Did you know that if you view this on a desktop, the page will turn
+          into a dark room?
         </div>
       </div>
     </Section>

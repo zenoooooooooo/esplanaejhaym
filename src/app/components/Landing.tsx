@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { CiLock, CiPause1, CiPlay1 } from "react-icons/ci";
+import { CiPause1, CiPlay1, CiUser } from "react-icons/ci";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Button from "./Custom/Button";
 import Section from "./Custom/Section";
 import Link from "next/link";
-import { useMediaQuery } from "react-responsive";
+
 const Landing = () => {
   const [headerText, { isType }] = useTypewriter({
     words: [
@@ -25,8 +25,6 @@ const Landing = () => {
     e.preventDefault();
     setMusic((prev) => !prev);
   }
-
-  const isDesktop = useMediaQuery({ minWidth: 1025 });
 
   useEffect(() => {
     if (!typingRef.current) {
@@ -73,13 +71,12 @@ const Landing = () => {
         className="absolute bottom-10 right-10 z-[9999] text-2xl"
       />
 
-        <Link
-          href="/aboutMe"
-          className="hidden desktop:block absolute bottom-24 right-10 z-[9999] text-2xl"
-        >
-          <CiLock />
-        </Link>
-
+      <Link
+        href="/aboutMe"
+        className="hidden desktop:block absolute bottom-24 right-10 z-[9999] text-2xl"
+      >
+        <CiUser />
+      </Link>
     </>
   );
 };

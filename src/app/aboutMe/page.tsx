@@ -6,6 +6,7 @@ import { CanvasLoader, MyRoom, AboutMeContent } from "../components";
 import { useMediaQuery } from "react-responsive";
 
 export default function AboutMe() {
+
   const [light, setLight] = useState(false);
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -28,6 +29,8 @@ export default function AboutMe() {
       window.removeEventListener("click", handleEvent);
     };
   }, [isSmall, isMobile, isTablet, isDesktop, toggleLight]);
+
+
 
   return (
     <>
