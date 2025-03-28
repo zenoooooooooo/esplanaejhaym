@@ -10,7 +10,7 @@ const experience: IExperience[] = [
   {
     company: "Infoshift Inc.",
     role: "Engineering Department Intern",
-    duration: "Feb - Mar 2024",
+    duration: "February 2024 - March 2024",
     description:
       "Trained to utilize Vue.js by replicating the company website. Developed professionalism by actively applying tools in coordination with instructors.",
   },

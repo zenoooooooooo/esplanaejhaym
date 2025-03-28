@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { Slide, ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import useSWRMutation from "swr/mutation";
 import {
@@ -19,6 +20,11 @@ interface IEmail {
 }
 
 const sendEmail = async (url: string, { arg }: { arg: IEmail }) => {
+  if (!navigator.onLine) {
+    toast.error("You are offline. Please check your internet connection.");
+    throw new Error("Offline: No internet connection.");
+  }
+
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -28,7 +34,8 @@ const sendEmail = async (url: string, { arg }: { arg: IEmail }) => {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to send message");
+    toast.error("Failed to send message. Please try again.");
+    throw new Error("Failed to send message. Please try again.");
   }
 
   return response.json();
@@ -44,15 +51,28 @@ const ContactMe: React.FC = () => {
   const onSubmit = async (data: any) => {
     try {
       await trigger(data);
-      alert("Message sent successfully!");
+      toast.success("Message sent successfully!");
       reset();
     } catch (error) {
-      alert("Failed to send message. Please try again.");
+      toast.error("Failed to send message. Please try again.");
     }
   };
 
   return (
     <Section className="bg-black min-h-screen text-white font-jetBrains">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Slide}
+      />
       <Nav />
       <Section className="flex flex-col items-center px-6 py-16 text-center">
         <h1 className="text-6xl font-bold text-blue-400 flex items-center gap-4 mb-12">

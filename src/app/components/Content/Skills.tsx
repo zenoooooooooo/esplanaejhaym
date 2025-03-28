@@ -129,7 +129,7 @@ const skills = [
 const Skills = () => {
   return (
     <Section className="text-center py-10 min-h-[80vh]" tag="section">
-      <h1 className="text-5xl font-bold text-blue-400 flex items-center justify-center gap-3">
+      <h1 className="desktop:text-5xl tablet:text-5xl  mobile:text-4xl small:text-2xl font-bold text-blue-400 flex items-center justify-center gap-3">
         <FaTools className="text-6xl text-blue-400 animate-pulse" /> Technical
         Skills
       </h1>
@@ -137,12 +137,13 @@ const Skills = () => {
         {skills.map((group, index) => (
           <div
             key={index}
-            className="bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 p-6 rounded-xl shadow-md 
+            className="bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 p-4 rounded-xl shadow-md 
             transition-all duration-150 transform hover:shadow-[0px_0px_30px_6px_rgba(59,130,246,0.7)] 
             hover:bg-gradient-to-t hover:from-gray-900 hover:to-gray-800"
           >
-            <h2 className="text-2xl font-semibold text-blue-400 mb-5 flex items-center justify-center gap-2 transition-all duration-150 hover:text-blue-300">
-              {group.icon} {group.category}
+            <h2 className="text-2xl small:text-[20px] font-semibold text-blue-400 mb-5 flex items-center justify-center gap-2 transition-all duration-150 hover:text-blue-300">
+              <span>{group.icon}</span>
+              <span>{group.category}</span>
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
               {group.items.map((skill, i) => (

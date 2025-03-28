@@ -4,7 +4,7 @@ import Section from "../Custom/Section";
 const Certifications = () => {
   return (
     <Section className="text-center py-16 min-h-[80vh]" tag="section">
-    <h1 className="text-6xl font-bold text-blue-400 flex items-center justify-center gap-4">
+   <h1 className="desktop:text-5xl tablet:text-5xl  mobile:text-4xl small:text-2xl font-bold text-blue-400 flex items-center justify-center gap-3">
       <FaCertificate className="text-6xl text-blue-400 animate-pulse" /> Certifications
     </h1>
     <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-8 mt-12 px-6 tablet:px-12 desktop:px-24">
