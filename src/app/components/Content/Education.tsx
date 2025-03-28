@@ -37,7 +37,7 @@ const education = [
 
 export default function Education() {
   return (
-    <Section className="px-6 py-12 bg-black text-white min-h-[80vh]">
+    <Section className="text-center px-6 py-12 bg-black text-white min-h-[80vh]">
       <h1 className="text-5xl font-bold text-blue-400 flex items-center justify-center gap-3">
         <FaGraduationCap className="text-blue-400 text-6xl" /> Education
       </h1>
