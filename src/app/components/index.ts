@@ -15,3 +15,5 @@ export { default as Skills } from "./Content/Skills";
 export { default as Education } from "./Content/Education";
 export { default as Certifications } from "./Content/Certifications";
 export { default as Experience } from "./Content/Experience";
+
+export { default as AboutMeContent } from "./Content/AboutMe";

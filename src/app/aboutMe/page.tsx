@@ -2,13 +2,11 @@
 import { Suspense, useEffect, useState } from "react";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { CanvasLoader, MyRoom } from "../components";
+import { CanvasLoader, MyRoom, AboutMeContent } from "../components";
 import { useMediaQuery } from "react-responsive";
-
 
 export default function AboutMe() {
   const [light, setLight] = useState(false);
-  const [camPos, setCamPos] = useState(0);
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
@@ -37,9 +35,9 @@ export default function AboutMe() {
         style={{
           height: "100vh",
           width: "100vw",
-          display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          display: isDesktop ? "flex" : "none",
         }}
       >
         <Suspense fallback={<CanvasLoader />}>
@@ -53,7 +51,7 @@ export default function AboutMe() {
         <PerspectiveCamera
           makeDefault
           fov={isDesktop ? 100 : isTablet ? 90 : 80}
-          position={[camPos, 0, 1]}
+          position={[0, 0, 1]}
         />
         <OrbitControls
           enableZoom={false}
@@ -62,6 +60,7 @@ export default function AboutMe() {
         />
       </Canvas>
 
+      <AboutMeContent />
     </>
   );
 }
