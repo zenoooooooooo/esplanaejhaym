@@ -9,7 +9,6 @@ import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
 
 const SolarSystem = () => {
-  const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
   const isDesktop = useMediaQuery({ minWidth: 1025 });
@@ -32,7 +31,7 @@ const SolarSystem = () => {
           rotation={isDesktop ? [0, 0.7, 0] : [0, 0, 0]}
         />
         <PerspectiveCamera position={[0, 0, 1]} makeDefault />
-        {(isTablet || isDesktop) && <OrbitControls />}
+        <OrbitControls />
       </Suspense>
     </Canvas>
   );
