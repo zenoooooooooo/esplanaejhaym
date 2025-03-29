@@ -74,20 +74,20 @@ const ContactMe: React.FC = () => {
         transition={Slide}
       />
       <Nav />
-      <Section className="flex flex-col items-center px-6 py-16 text-center">
-        <h1 className="text-6xl font-bold text-blue-400 flex items-center gap-4 mb-12">
-          <FaEnvelopeOpenText className="text-6xl text-blue-400 animate-pulse" />
+      <Section className="flex flex-col items-center px-6 mobile:px-4 small:px-2 py-16 text-center">
+        <h1 className="desktop:text-5xl tablet:text-5xl  mobile:text-4xl small:text-2xl font-bold text-blue-400 flex items-center justify-center gap-3">
+          <FaEnvelopeOpenText className="text-6xl  text-blue-400 animate-pulse" />
           Contact Me
         </h1>
 
-        <div className="grid gap-12 w-full max-w-5xl ">
-          <div className="mb-8 bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 p-10 rounded-3xl shadow-lg hover:shadow-[0px_0px_30px_6px_rgba(59,130,246,0.7)] duration-150">
-            <h3 className="text-3xl font-semibold text-blue-300 mb-6">
+        <div className="flex flex-col items-center w-full mt-10">
+          <div className="mb-8 bg-gradient-to-b desktop:w-[60%] tablet:w-[60%] mobile:w-full small:w-full from-gray-800 to-gray-900 border border-gray-700 p-4 rounded-3xl shadow-lg hover:shadow-[0px_0px_30px_6px_rgba(59,130,246,0.7)] duration-150">
+            <h3 className="text-3xl mobile:text-2xl small:text-2xl font-semibold text-blue-300 mb-6">
               Send me a Message
             </h3>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-6 mobile:text-sm"
             >
               <input
                 {...register("name", { required: true })}
@@ -108,19 +108,20 @@ const ContactMe: React.FC = () => {
               />
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-8 py-4 text-2xl font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors"
+                className="bg-gradient-to-r from-blue-700 to-blue-900 text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-md hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-500 hover:shadow-lg hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:bg-gray-600 disabled:cursor-not-allowed"
                 disabled={isMutating}
               >
                 {isMutating ? "Sending..." : "Submit"}
               </button>
             </form>
           </div>
-          <hr className="w-full border-gray-500 my-4" />
-          <div className="bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 p-10 rounded-3xl shadow-lg hover:shadow-[0px_0px_30px_6px_rgba(59,130,246,0.7)] duration-150">
-            <h3 className="text-3xl font-semibold text-blue-300 mb-6">
+          <hr className="w-4/5 border-gray-500 my-4" />
+
+          <div className="mt-8 bg-gradient-to-b desktop:w-[60%] tablet:w-[60%] mobile:w-full small:w-full from-gray-800 to-gray-900 border border-gray-700 p-4 rounded-3xl shadow-lg hover:shadow-[0px_0px_30px_6px_rgba(59,130,246,0.7)] duration-150">
+            <h3 className="text-3xl mobile:text-2xl small:text-2xl font-semibold text-blue-300 mb-6">
               Get in Touch
             </h3>
-            <div className="flex flex-col items-center gap-6 text-2xl">
+            <div className="flex flex-col items-center gap-6 text-2xl mobile:text-md small:text-sm">
               <hr className="w-full border-gray-500 my-4" />
               <a
                 href="tel:+639947877593"
@@ -135,7 +136,7 @@ const ContactMe: React.FC = () => {
                 href="mailto:esplanaejhaym@gmail.com"
                 className="flex items-center gap-4 text-gray-300 hover:text-red-300 transition-colors"
               >
-                <FaEnvelope className="text-3xl text-red-400" />{" "}
+                <FaEnvelope className="text-3xl  text-red-400" />{" "}
                 esplanaejhaym@gmail.com
               </a>
               <hr className="w-full border-gray-500 my-4" />
