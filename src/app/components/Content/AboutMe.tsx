@@ -3,14 +3,11 @@ import React from "react";
 import Section from "../Custom/Section";
 import { images } from "../../constants";
 
-
 const AboutMe = () => {
-
-
   return (
     <Section className="tablet:bg-black mobile:bg-black  small:bg-black w-full h-[100vh] bg-transparent text-white font-jetBrains absolute z-[9999] top-0 overflow-auto">
       <div className="relative z-10 p-6 md:p-12 max-w-[100vw] mx-auto">
-        <section className="h-[100vh] w-full flex flex-col desktop:flex-row text-center desktop:text-left items-center justify-evenly bg-transparent p-6">
+        <section className="h-auto min-h-screen w-full flex flex-col desktop:flex-row text-center desktop:text-left items-center justify-evenly bg-transparent p-6">
           <div className="m-6">
             <img
               src={images[1].src}
@@ -31,7 +28,7 @@ const AboutMe = () => {
           </div>
         </section>
 
-        <section className="h-[100vh] w-full flex flex-col desktop:flex-row text-center desktop:text-right items-center justify-evenly bg-transparent p-6">
+        <section className="h-auto min-h-screen w-full flex flex-col desktop:flex-row text-center desktop:text-right items-center justify-evenly bg-transparent p-6">
           <div className="desktop:hidden block m-6">
             <img
               src={images[2].src}
@@ -69,8 +66,7 @@ const AboutMe = () => {
             />
           </div>
         </section>
-
-        <section className="h-[100vh] w-full flex flex-col desktop:flex-row text-center desktop:text-left items-center justify-evenly bg-transparent p-6">
+        <section className="h-auto min-h-screen w-full flex flex-col desktop:flex-row text-center desktop:text-right items-center justify-evenly bg-transparent p-6">
           <div className="m-6">
             <img
               src={images[3].src}
@@ -97,7 +93,7 @@ const AboutMe = () => {
           </div>
         </section>
 
-        <div className="flex flex-col justify-center items-center text-center h-[100vh]">
+        <div className="flex flex-col justify-center items-center text-center h-auto min-h-screen">
           <div>
             <img
               src={images[4].src}
@@ -118,9 +114,11 @@ const AboutMe = () => {
             <p className="mt-6">A wise man</p>
           </blockquote>
         </div>
-        <div className="desktop:hidden absolute bottom-5 text-[12px] right-5 text-gray-300">
-          Did you know that if you view this on a desktop, the page will turn
-          into a dark room?
+        <div className="desktop:hidden absolute bottom-5 left-1/2 transform -translate-x-1/2 w-full text-[12px]  text-gray-300">
+          <h3 className="w-full text-center">
+            Did you know that if you view this on a desktop, the page will turn
+            into a dark room?
+          </h3>
         </div>
       </div>
     </Section>
