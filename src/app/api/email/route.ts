@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendEmail } from "@/backend/controllers/emailController";
+// import { sendEmail } from "@/backend/controllers/emailController";
 export async function POST(request: NextRequest) {
   try {
     const { name, email, message } = await request.json();
@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const response = await sendEmail(name, email, message);
+    // const response = await sendEmail(name, email, message);
 
     return NextResponse.json(
       { success: true, message: "Email sent successfully!" },

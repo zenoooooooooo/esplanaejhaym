@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getProjects } from "@/backend/controllers";
+// import { getProjects } from "@/backend/controllers";
 
 export async function GET(req: NextRequest) {
   try {
     
-    await getProjects();
+    // await getProjects();
 
   } catch (err) {
     console.error(err);
