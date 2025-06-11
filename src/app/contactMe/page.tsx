@@ -115,7 +115,7 @@ const ContactMe: React.FC = () => {
               </button>
             </form>
           </div>
-          <hr className="w-4/5 border-gray-500 my-4" />
+          {/* <hr className="w-4/5 border-gray-500 my-4" /> */}
 
           <div className="mt-8 bg-gradient-to-b desktop:w-[60%] tablet:w-[60%] mobile:w-full small:w-full from-gray-800 to-gray-900 border border-gray-700 p-4 rounded-3xl shadow-lg hover:shadow-[0px_0px_30px_6px_rgba(59,130,246,0.7)] duration-150">
             <h3 className="text-3xl mobile:text-2xl small:text-2xl font-semibold text-blue-300 mb-6">
