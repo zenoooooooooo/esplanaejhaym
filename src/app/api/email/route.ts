@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-// import { sendEmail } from "@/backend/controllers/emailController";
+import sendEmail from "@/backend/controllers/emailController";
 export async function POST(request: NextRequest) {
   try {
     const { name, email, message } = await request.json();
@@ -13,17 +13,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // const response = await sendEmail(name, email, message);
+    const response = await sendEmail(name, email, message);
 
     return NextResponse.json(
-      { success: true, message: "Email sent successfully!" },
+      { success: true, message: "Email sent successfully!", response },
       { status: 200 }
     );
-  } catch (err) {
-    console.error("Error:", err);
-    return NextResponse.json(
-      { success: false, message: "Internal Server Error" },
-      { status: 500 }
-    );
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    const status = 500;
+    return NextResponse.json({ success: false, message }, { status });
   }
 }

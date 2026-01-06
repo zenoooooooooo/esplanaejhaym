@@ -25,12 +25,10 @@ async function sendEmail(name: string, email: string, message: string) {
       response: { success: true, message: "Email sent successfully!" },
       status: 200,
     };
-  } catch (err) {
-    console.error("Email sending error:", err);
-    return {
-      response: { success: false, message: "Failed to send email" },
-      status: 500,
-    };
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    console.error(`[sendEmail error]: ${message}`);
+    throw new Error(message);
   }
 }
 
