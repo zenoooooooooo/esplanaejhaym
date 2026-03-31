@@ -1,26 +1,48 @@
-const experience: IExperience[] = [
+const experience = [
   {
     company:
       "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation",
-    role: "Full-stack Web Developer",
-    duration: "March 2025 - Present",
-    description:
-      "After working as a Back-End Developer at ALPHA: Alliance of Leading Programmers through Heuristic Adaptation, I was promoted to a Full-Stack role, focusing on building and maintaining web applications using Next.js. I took on both frontend and backend tasks, developing event management systems, internal tools, and official websites for STI Ortigas-Cainta. My responsibilities included improving user interfaces, handling data operations, refining API integrations, and optimizing overall system performance to support smoother event planning and coordination within the organization.",
+    location: "Cainta, Calabarzon, Philippines · Hybrid",
+    roles: [
+      {
+        role: "Full-stack Developer",
+        duration: "March 2025 - Present",
+        responsibilities:
+          "Developed full-stack web systems using MERN and Next.js, built event registration platforms and student dashboards, created interactive web apps including games and messaging tools, and integrated frontend interfaces with backend APIs and databases.",
+      },
+      {
+        role: "Back-end Developer",
+        duration: "August 2024 - March 2025",
+        responsibilities:
+          "Designed and implemented backend APIs, assisted in database schema design, developed server-side business logic and data workflows, and supported authentication, validation, and system security.",
+      },
+    ],
   },
+
   {
-    company:
-      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation",
-    role: "Back-End Web Developer",
-    duration: "August 2024 - March 2025",
-    description:
-      "As a Back-End Web Developer at ALPHA: Alliance of Leading Programmers through Heuristic Adaptation, I built server-side functions using the MERN stack and Next.js. I managed student data from STI Ortigas-Cainta during events, ensuring accuracy and easy access. I also developed official websites and tools alongside the developer department team, so that event organization, making planning and coordination more efficient. My work included improving authentication, developing RESTful APIs, and enhancing real-time data handling to create a smoother user experience.",
+    company: "Self Employed",
+    location: "Freelance",
+    roles: [
+      {
+        role: "Freelance Software & IT Developer",
+        duration: "August 2023 - Present",
+        responsibilities:
+          "Developed Java desktop applications, built full-stack web systems with database integration, created Bash automation scripts, and provided IT services including OS installation, system setup, and client-based technical solutions.",
+      },
+    ],
   },
+
   {
     company: "Infoshift Inc.",
-    role: "Engineering Department Intern",
-    duration: "February 2024 - March 2024",
-    description:
-      "Trained to utilize Vue.js by replicating the company website. Developed professionalism by actively applying tools in coordination with instructors.",
+    location: "Philippines · Remote",
+    roles: [
+      {
+        role: "Engineering Department Intern",
+        duration: "February 2024 - March 2024",
+        responsibilities:
+          "Independently built a company website using Vue.js and Tailwind CSS, applied component-based frontend architecture with state management, collaborated with engineering leadership, and followed real-world development workflows including version control and task tracking.",
+      },
+    ],
   },
 ];
 

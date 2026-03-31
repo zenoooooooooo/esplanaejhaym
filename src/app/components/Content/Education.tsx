@@ -2,40 +2,20 @@
 
 import { motion } from "framer-motion";
 import Section from "../Custom/Section";
-
-const education = [
-  {
-    level: "College",
-    school: "STI College - Ortigas-Cainta",
-    degree: "Bachelor of Science in Information Technology",
-    year: "2024 - Present",
-  },
-  {
-    level: "Senior High School",
-    school: "Cainta Senior High School",
-    degree: "TVL/ICT - Computer Programming",
-    year: "2022 - 2024",
-  },
-  {
-    level: "Junior High School",
-    school: "Francisco P. Felix Memorial National High School",
-    degree: "",
-    year: "2018 - 2022",
-  },
-  {
-    level: "Elementary",
-    school: "San Isidro Elementary School",
-    degree: "",
-    year: "2018 - 2022",
-  },
-];
+import { FaGraduationCap } from "react-icons/fa";
+import education from "../../constants/education";
 
 export default function Education() {
   return (
     <Section className="bg-black text-white py-20 px-6" tag="section">
-      <h1 className="text-4xl font-semibold text-blue-400 text-center mb-20">
+      <h1 className="text-4xl font-semibold text-blue-400 flex items-center justify-center gap-3 mb-4">
+        <FaGraduationCap className="text-5xl animate-pulse" />
         Education
       </h1>
+      <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+        Academic background in Information Technology with a strong focus on
+        programming, software development, and continuous technical growth.
+      </p>
 
       <div className="relative max-w-4xl mx-auto px-4 md:px-0">
         <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 h-full w-[2px] bg-neutral-800" />

@@ -1,17 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaCertificate, FaExternalLinkAlt } from "react-icons/fa";
 import { certifications } from "../../constants";
 import Section from "../Custom/Section";
 
 export default function Certifications() {
   return (
     <Section className="bg-black text-white py-20 px-6" tag="section">
-      <h1 className="text-4xl font-semibold text-blue-400 text-center mb-20">
+      <h1 className="text-4xl font-semibold text-blue-400 flex items-center justify-center gap-3 mb-4">
+        <FaCertificate className="text-5xl animate-pulse" />
         Certifications
       </h1>
-
+      <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+        A collection of certifications in web development, programming, and
+        software fundamentals, with additional certifications currently in
+        progress to further strengthen my skills and stay updated with modern
+        technologies.
+      </p>
       <div className="relative max-w-4xl mx-auto px-4 md:px-0">
         <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 h-full w-[2px] bg-neutral-800" />
 
@@ -53,7 +59,6 @@ export default function Certifications() {
                     transition-all duration-300
                   "
                 >
-
                   <h3 className="text-xl font-semibold text-white">
                     {cert.title}
                   </h3>

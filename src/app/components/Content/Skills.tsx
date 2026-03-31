@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 import {
   FaReact,
@@ -49,7 +51,6 @@ const stacks = [
       { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
     ],
   },
-
   {
     title: "MEVN Stack",
     description: "Vue-based full-stack web development",
@@ -61,7 +62,6 @@ const stacks = [
       { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
     ],
   },
-
   {
     title: "PERN Stack",
     description: "PostgreSQL-powered modern web apps",
@@ -73,7 +73,6 @@ const stacks = [
       { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
     ],
   },
-
   {
     title: "LAMP Stack",
     description: "Classic web development stack (Linux, Apache, MySQL, PHP)",
@@ -85,7 +84,6 @@ const stacks = [
       { name: "PHP", icon: <SiPhp className="text-indigo-400" /> },
     ],
   },
-
   {
     title: "Next.js Fullstack",
     description: "Modern SSR/SSG React-based production apps",
@@ -97,7 +95,6 @@ const stacks = [
       { name: "Databases", icon: <FaDatabase className="text-blue-400" /> },
     ],
   },
-
   {
     title: "Django / DRF Stack",
     description: "Python backend with REST API development",
@@ -109,7 +106,6 @@ const stacks = [
       { name: "SQLite", icon: <FaDatabase className="text-blue-500" /> },
     ],
   },
-
   {
     title: "React Native + Firebase",
     description: "Cross-platform mobile apps with backend support",
@@ -131,7 +127,6 @@ const stacks = [
       { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
     ],
   },
-
   {
     title: "Android Native",
     description: "Native Android development",
@@ -142,7 +137,6 @@ const stacks = [
       { name: "Gradle", icon: <FaTools className="text-green-400" /> },
     ],
   },
-
   {
     title: "Java Desktop Apps",
     description: "Cross-platform desktop applications using Java",
@@ -155,17 +149,6 @@ const stacks = [
       { name: "Ant", icon: <FaTools className="text-red-400" /> },
       { name: "Maven", icon: <FaTools className="text-orange-400" /> },
       { name: "Gradle", icon: <FaTools className="text-green-400" /> },
-    ],
-  },
-
-  {
-    title: "C# Windows Forms",
-    description: "Windows desktop application development",
-    icon: <FaWindows className="text-blue-400 text-3xl" />,
-    tech: [
-      { name: "C#", icon: <SiSharp className="text-purple-400" /> },
-      { name: ".NET", icon: <SiDotnet className="text-blue-500" /> },
-      { name: "Windows Forms", icon: <FaWindows className="text-blue-400" /> },
     ],
   },
   {
@@ -187,29 +170,43 @@ const stacks = [
       { name: "Bash / Shell", icon: <FaTerminal className="text-green-300" /> },
       { name: "Git", icon: <FaGithub className="text-white" /> },
       { name: "GitHub", icon: <FaGithub className="text-gray-300" /> },
-
       { name: "Postman", icon: <SiPostman className="text-orange-400" /> },
       { name: "Networking Basics", icon: <FaCogs className="text-gray-400" /> },
+    ],
+  },
+  {
+    title: "C# Windows Forms",
+    description: "Windows desktop application development",
+    icon: <FaWindows className="text-blue-400 text-3xl" />,
+    tech: [
+      { name: "C#", icon: <SiSharp className="text-purple-400" /> },
+      { name: ".NET", icon: <SiDotnet className="text-blue-500" /> },
+      { name: "Windows Forms", icon: <FaWindows className="text-blue-400" /> },
     ],
   },
 ];
 
 const container = {
-  hidden: { opacity: 0 },
+  hidden: {},
   show: {
-    opacity: 1,
     transition: { staggerChildren: 0.12 },
   },
 };
 
 const card = {
-  hidden: { opacity: 0, y: 25 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 60 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const Skills = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <Section className="text-center py-20 min-h-[80vh]" tag="section">
+    <Section
+      className="bg-black text-center text-white py-20 px-6"
+      tag="section"
+    >
       <h1 className="text-4xl font-semibold text-blue-400 flex items-center justify-center gap-3 mb-4">
         <FaTools className="text-5xl animate-pulse" />
         Multi-Stack Technical Portfolio
@@ -221,10 +218,11 @@ const Skills = () => {
       </p>
 
       <motion.div
+        ref={ref}
         className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6 max-w-6xl mx-auto px-4"
         variants={container}
         initial="hidden"
-        animate="show"
+        animate={isInView && "show"}
       >
         {stacks.map((stack, i) => (
           <motion.div
@@ -243,7 +241,7 @@ const Skills = () => {
               {stack.tech.map((item, j) => (
                 <div
                   key={j}
-                  className="flex items-center gap-2 text-gray-300 hover:text-white hover:scale-105 transition"
+                  className="flex items-center gap-2 text-gray-300 hover:text-white transition"
                 >
                   <span className="text-xl text-blue-400">{item.icon}</span>
                   <span className="text-sm">{item.name}</span>
