@@ -9,6 +9,7 @@ import {
   FaLinkedin,
   FaFacebook,
   FaInstagram,
+  FaPaperPlane,
   FaEnvelopeOpenText,
 } from "react-icons/fa";
 import { Section, Nav } from "../components";
@@ -21,155 +22,171 @@ interface IEmail {
 
 const sendEmail = async (url: string, { arg }: { arg: IEmail }) => {
   if (!navigator.onLine) {
-    toast.error("You are offline. Please check your internet connection.");
-    throw new Error("Offline: No internet connection.");
+    toast.error("You are offline.");
+    throw new Error("offline");
   }
 
-  const response = await fetch(url, {
+  const res = await fetch(url, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(arg),
   });
 
-  if (!response.ok) {
-    toast.error("Failed to send message. Please try again.");
-    throw new Error("Failed to send message. Please try again.");
+  if (!res.ok) {
+    toast.error("Message failed.");
+    throw new Error("failed");
   }
 
-  return response.json();
+  return res.json();
 };
 
 const ContactMe: React.FC = () => {
   const { register, handleSubmit, reset } = useForm<IEmail>();
-  const { trigger, isMutating } = useSWRMutation<IEmail, Error, string>(
-    "/api/email",
-    sendEmail
-  );
+  const { trigger, isMutating } = useSWRMutation("/api/email", sendEmail);
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: IEmail) => {
     try {
       await trigger(data);
-      toast.success("Message sent successfully!");
+      toast.success("Message sent!");
       reset();
-    } catch (error) {
-      toast.error("Failed to send message. Please try again.");
+    } catch {
+      toast.error("Something went wrong.");
     }
   };
 
   return (
-    <Section className="bg-black min-h-screen text-white font-jetBrains">
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        transition={Slide}
-      />
+    <Section className="bg-black min-h-screen h-full text-white font-jetBrains">
+      <ToastContainer position="top-center" theme="dark" transition={Slide} />
       <Nav />
-      <Section className="flex flex-col items-center px-6 mobile:px-4 small:px-2 py-16 text-center">
-        <h1 className="desktop:text-5xl tablet:text-5xl  mobile:text-4xl small:text-2xl font-bold text-blue-400 flex items-center justify-center gap-3">
-          <FaEnvelopeOpenText className="text-6xl  text-blue-400 animate-pulse" />
-          Contact Me
-        </h1>
 
-        <div className="flex flex-col items-center w-full mt-10">
-          <div className="mb-8 bg-gradient-to-b desktop:w-[60%] tablet:w-[60%] mobile:w-full small:w-full from-gray-800 to-gray-900 border border-gray-700 p-4 rounded-3xl shadow-lg hover:shadow-[0px_0px_30px_6px_rgba(59,130,246,0.7)] duration-150">
-            <h3 className="text-3xl mobile:text-2xl small:text-2xl font-semibold text-blue-300 mb-6">
-              Send me a Message
-            </h3>
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-6 mobile:text-sm"
-            >
-              <input
-                {...register("name", { required: true })}
-                type="text"
-                placeholder="Your Name"
-                className="bg-gray-800 text-white border p-4 rounded-lg focus:outline-none focus:border-blue-400"
-              />
-              <input
-                {...register("email", { required: true })}
-                type="email"
-                placeholder="Your Email"
-                className="bg-gray-800 text-white border p-4 rounded-lg focus:outline-none focus:border-blue-400"
-              />
-              <textarea
-                {...register("message", { required: true })}
-                placeholder="Your Message"
-                className="bg-gray-800 text-white border p-4 rounded-lg focus:outline-none focus:border-blue-400 h-40 resize-none"
-              />
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-blue-700 to-blue-900 text-white px-6 py-3 text-lg font-semibold rounded-lg shadow-md hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-500 hover:shadow-lg hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:bg-gray-600 disabled:cursor-not-allowed"
-                disabled={isMutating}
-              >
-                {isMutating ? "Sending..." : "Submit"}
-              </button>
-            </form>
+      <Section className="px-6 pb-6 max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-semibold text-blue-400 flex items-center justify-center gap-3 mb-4">
+            <FaEnvelopeOpenText className="text-5xl animate-pulse" />
+            Contact Console
+          </h1>
+          <p className="text-gray-400 text-center mb-16 max-w-2xl mx-auto">
+            Reach out through any channel or send a direct message.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 desktop:grid-cols-12 gap-8">
+          <div className="desktop:col-span-4 space-y-6">
+
+            <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5 hover:border-blue-500/40 transition max-w-2xl mx-auto md:mx-0">
+              <h2 className="text-xl text-blue-300 font-semibold">
+                Developer Profile
+              </h2>
+
+              <p className="text-gray-400 text-sm mt-3 leading-relaxed">
+                Full-stack developer focused on building scalable web systems,
+                automation tools, and interactive UI experiences.
+              </p>
+
+              <div className="mt-5 text-xs text-gray-500 space-y-1">
+                <p>Status: Available for work</p>
+                <p>Response: 24–48 hours</p>
+                <p>Location: Remote / Philippines</p>
+              </div>
+            </div>
+
+            <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5 hover:border-blue-500/40 transition max-w-2xl mx-auto md:mx-0">
+              <h3 className="text-blue-300 font-semibold mb-4">
+                Quick Connect
+              </h3>
+
+              <div className="flex flex-col gap-4 text-sm">
+                <a
+                  href="tel:+639947877593"
+                  className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition"
+                >
+                  <FaPhone className="text-blue-400" />
+                  Call - 09947877593
+                </a>
+
+                <a
+                  href="mailto:esplanaejhaym@gmail.com"
+                  className="flex items-center gap-3 text-gray-300 hover:text-red-400 transition"
+                >
+                  <FaEnvelope className="text-red-400" />
+                  Email - esplanaejhaym@gmail.com
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/e-jhay-esplana-3884ab287/"
+                  className="flex items-center gap-3 text-gray-300 hover:text-blue-500 transition"
+                >
+                  <FaLinkedin className="text-blue-500" />
+                  LinkedIn - E-Jhay Esplana
+                </a>
+
+                <a
+                  href="https://www.facebook.com/espleynaaa"
+                  className="flex items-center gap-3 text-gray-300 hover:text-blue-400 transition"
+                >
+                  <FaFacebook className="text-blue-400" />
+                  Facebook - E-Jhay Esplana
+                </a>
+
+                <a
+                  href="https://www.instagram.com/espleynaaa/"
+                  className="flex items-center gap-3 text-gray-300 hover:text-pink-400 transition"
+                >
+                  <FaInstagram className="text-pink-400" />
+                  Instagram - espleynaaa
+                </a>
+              </div>
+            </div>
           </div>
-          {/* <hr className="w-4/5 border-gray-500 my-4" /> */}
 
-          <div className="mt-8 bg-gradient-to-b desktop:w-[60%] tablet:w-[60%] mobile:w-full small:w-full from-gray-800 to-gray-900 border border-gray-700 p-4 rounded-3xl shadow-lg hover:shadow-[0px_0px_30px_6px_rgba(59,130,246,0.7)] duration-150">
-            <h3 className="text-3xl mobile:text-2xl small:text-2xl font-semibold text-blue-300 mb-6">
-              Get in Touch
-            </h3>
-            <div className="flex flex-col items-center gap-6 text-2xl mobile:text-md small:text-sm">
-              <hr className="w-full border-gray-500 my-4" />
-              <a
-                href="tel:+639947877593"
-                className="flex items-center gap-4 text-gray-300 hover:text-blue-300 transition-colors"
-              >
-                <FaPhone className="text-3xl text-blue-400" />
-                +639947877593
-              </a>
-              <hr className="w-full border-gray-500 my-4" />
+          <div className="desktop:col-span-8">
+            <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5 hover:border-blue-500/40 transition">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl text-blue-300 font-semibold">
+                  Message Terminal
+                </h2>
 
-              <a
-                href="mailto:esplanaejhaym@gmail.com"
-                className="flex items-center gap-4 text-gray-300 hover:text-red-300 transition-colors"
-              >
-                <FaEnvelope className="text-3xl  text-red-400" />{" "}
-                esplanaejhaym@gmail.com
-              </a>
-              <hr className="w-full border-gray-500 my-4" />
+                <div className="text-xs text-gray-500">
+                  encrypted connection
+                </div>
+              </div>
 
-              <a
-                href="https://www.linkedin.com/in/e-jhay-esplana-3884ab287"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 text-gray-300 hover:text-blue-500 transition-colors"
-              >
-                <FaLinkedin className="text-3xl text-blue-600" /> E-Jhay Esplana
-              </a>
-              <hr className="w-full border-gray-500 my-4" />
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
+                  <input
+                    {...register("name", { required: true })}
+                    placeholder="Name"
+                    className="bg-neutral-800 border border-neutral-700 rounded-lg p-2.5 text-sm focus:border-blue-400 focus:outline-none transition"
+                  />
 
-              <a
-                href="https://www.facebook.com/profile.php?id=100095327541574"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 text-gray-300 hover:text-blue-400 transition-colors"
-              >
-                <FaFacebook className="text-3xl text-blue-500" /> E-Jhay Esplana
-              </a>
-              <hr className="w-full border-gray-500 my-4" />
+                  <input
+                    {...register("email", { required: true })}
+                    placeholder="Email"
+                    type="email"
+                    className="bg-neutral-800 border border-neutral-700 rounded-lg p-2.5 text-sm focus:border-blue-400 focus:outline-none transition"
+                  />
+                </div>
 
-              <a
-                href="https://www.instagram.com/espleynaaa/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 text-gray-300 hover:text-pink-400 transition-colors"
-              >
-                <FaInstagram className="text-3xl text-pink-500" /> espleynaaa
-              </a>
-              <hr className="w-full border-gray-500 my-4" />
+                <textarea
+                  {...register("message", { required: true })}
+                  placeholder="Type your message..."
+                  className="w-full bg-neutral-800 border border-neutral-700 rounded-lg p-3 text-sm h-56 resize-none focus:border-blue-400 focus:outline-none transition"
+                />
+
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-gray-500">
+                    Tip: keep it clear and concise
+                  </p>
+
+                  <button
+                    disabled={isMutating}
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 disabled:bg-gray-700 px-6 py-3 rounded-lg transition"
+                  >
+                    <FaPaperPlane />
+                    {isMutating ? "Sending..." : "Transmit"}
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

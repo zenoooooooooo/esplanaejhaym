@@ -45,11 +45,19 @@ const Experience = () => {
                   {exp.roles.map((role, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4 }}
-                      viewport={{ once: true }}
-                      className={`relative flex flex-col md:flex-row md:items-center ${isLeft ? "md:justify-start" : "md:justify-end"} pl-12 md:pl-0`}
+                      initial={{
+                        opacity: 0,
+                        x: window.innerWidth < 768 ? -60 : isLeft ? -60 : 60,
+                      }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      className={`
+                  relative flex flex-col md:flex-row
+                  md:items-center
+                  ${isLeft ? "md:justify-start" : "md:justify-end"}
+                  pl-12 md:pl-0
+                `}
                     >
                       <div
                         className="
