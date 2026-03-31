@@ -1,169 +1,258 @@
+import { motion } from "framer-motion";
+
 import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
   FaReact,
   FaNodeJs,
-  FaDatabase,
-  FaLinux,
-  FaGithub,
-  FaTerminal,
-  FaAndroid,
-  FaCogs,
-  FaCode,
   FaMobileAlt,
   FaLaptopCode,
-  FaServer,
-  FaCubes,
-  FaSass,
+  FaDatabase,
   FaTools,
+  FaJava,
+  FaWindows,
+  FaCogs,
+  FaGithub,
+  FaTerminal,
 } from "react-icons/fa";
+
 import {
-  SiTailwindcss,
-  SiBootstrap,
-  SiTypescript,
-  SiJquery,
   SiMongodb,
-  SiMysql,
-  SiPostgresql,
-  SiCplusplus,
-  SiPython,
-  SiPhp,
-  SiC,
   SiExpress,
-  SiNextdotjs,
   SiVuedotjs,
-  SiApache,
+  SiNextdotjs,
+  SiDjango,
+  SiPostgresql,
+  SiMysql,
   SiFirebase,
-  SiGradle,
+  SiPhp,
+  SiPython,
+  SiApache,
+  SiLinux,
+  SiDotnet,
+  SiSharp,
+  SiC,
+  SiCplusplus,
+  SiPostman,
 } from "react-icons/si";
+
 import { DiJava } from "react-icons/di";
 import Section from "../Custom/Section";
 
-const skills = [
+const stacks = [
   {
-    category: "Web Development Tools",
+    title: "MERN Stack",
+    description: "Full JavaScript stack for scalable web applications",
     icon: <FaLaptopCode className="text-blue-400 text-3xl" />,
-    items: [
-      { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
-      { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
-      { name: "SASS", icon: <FaSass className="text-pink-500" /> },
-      {
-        name: "Tailwind CSS",
-        icon: <SiTailwindcss className="text-teal-400" />,
-      },
-      { name: "Bootstrap", icon: <SiBootstrap className="text-purple-600" /> },
-      { name: "jQuery", icon: <SiJquery className="text-blue-400" /> },
-      { name: "JavaScript", icon: <FaJs className="text-yellow-500" /> },
-      { name: "TypeScript", icon: <SiTypescript className="text-blue-500" /> },
-      { name: "React.js", icon: <FaReact className="text-cyan-400" /> },
-      { name: "Vue.js", icon: <SiVuedotjs className="text-green-400" /> },
-      { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
-      { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
+    tech: [
+      { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
       { name: "Express.js", icon: <SiExpress className="text-gray-300" /> },
+      { name: "React.js", icon: <FaReact className="text-cyan-400" /> },
+      { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
     ],
   },
+
   {
-    category: "Desktop App Development Tools",
-    icon: <FaLaptopCode className="text-gray-400 text-3xl" />,
-    items: [
-      { name: "JavaFX", icon: <DiJava className="text-orange-500" /> },
-      { name: "Java Swing", icon: <DiJava className="text-red-500" /> },
-      { name: "SceneBuilder", icon: <FaCogs className="text-gray-500" /> },
-      { name: "Gradle", icon: <SiGradle className="text-green-500" /> },
-      { name: "Maven", icon: <FaCogs className="text-orange-500" /> },
-      { name: "Apache Ant", icon: <FaCogs className="text-red-500" /> },
+    title: "MEVN Stack",
+    description: "Vue-based full-stack web development",
+    icon: <FaLaptopCode className="text-green-400 text-3xl" />,
+    tech: [
+      { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
+      { name: "Express.js", icon: <SiExpress className="text-gray-300" /> },
+      { name: "Vue.js", icon: <SiVuedotjs className="text-green-400" /> },
+      { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
     ],
   },
+
   {
-    category: "Mobile App Development Tools",
-    icon: <FaMobileAlt className="text-green-400 text-3xl" />,
-    items: [
-      { name: "React Native", icon: <FaReact className="text-cyan-400" /> },
-      { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
-      {
-        name: "Android Development",
-        icon: <FaAndroid className="text-green-500" />,
-      },
+    title: "PERN Stack",
+    description: "PostgreSQL-powered modern web apps",
+    icon: <FaDatabase className="text-blue-400 text-3xl" />,
+    tech: [
+      { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-500" /> },
+      { name: "Express.js", icon: <SiExpress className="text-gray-300" /> },
+      { name: "React.js", icon: <FaReact className="text-cyan-400" /> },
+      { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
     ],
   },
+
   {
-    category: "Languages",
-    icon: <FaCode className="text-red-400 text-3xl" />,
-    items: [
-      { name: "Java", icon: <DiJava className="text-red-600" /> },
-      { name: "Python", icon: <SiPython className="text-blue-400" /> },
-      { name: "C", icon: <SiC className="text-gray-400" /> },
-      { name: "C#", icon: <FaDatabase className="text-purple-400" /> },
-      { name: "C++", icon: <SiCplusplus className="text-blue-600" /> },
+    title: "LAMP Stack",
+    description: "Classic web development stack (Linux, Apache, MySQL, PHP)",
+    icon: <SiLinux className="text-white text-3xl" />,
+    tech: [
+      { name: "Linux", icon: <SiLinux className="text-white" /> },
+      { name: "Apache", icon: <SiApache className="text-red-400" /> },
+      { name: "MySQL", icon: <SiMysql className="text-blue-500" /> },
       { name: "PHP", icon: <SiPhp className="text-indigo-400" /> },
     ],
   },
+
   {
-    category: "Databases",
-    icon: <FaServer className="text-yellow-400 text-3xl" />,
-    items: [
-      { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
-      { name: "MySQL", icon: <SiMysql className="text-blue-500" /> },
-      { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-600" /> },
-      { name: "MariaDB", icon: <FaDatabase className="text-gray-400" /> },
-      { name: "Apache Derby", icon: <SiApache className="text-orange-500" /> },
-      { name: "SQLite", icon: <FaDatabase className="text-gray-500" /> },
+    title: "Next.js Fullstack",
+    description: "Modern SSR/SSG React-based production apps",
+    icon: <SiNextdotjs className="text-white text-3xl" />,
+    tech: [
+      { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+      { name: "React.js", icon: <FaReact className="text-cyan-400" /> },
+      { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
+      { name: "Databases", icon: <FaDatabase className="text-blue-400" /> },
+    ],
+  },
+
+  {
+    title: "Django / DRF Stack",
+    description: "Python backend with REST API development",
+    icon: <SiDjango className="text-green-500 text-3xl" />,
+    tech: [
+      { name: "Python", icon: <SiPython className="text-blue-400" /> },
+      { name: "Django", icon: <SiDjango className="text-green-500" /> },
+      { name: "DRF", icon: <SiDjango className="text-green-400" /> },
+      { name: "SQLite", icon: <FaDatabase className="text-blue-500" /> },
+    ],
+  },
+
+  {
+    title: "React Native + Firebase",
+    description: "Cross-platform mobile apps with backend support",
+    icon: <FaMobileAlt className="text-green-400 text-3xl" />,
+    tech: [
+      { name: "React Native", icon: <FaReact className="text-cyan-400" /> },
+      { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
+      { name: "Node.js API", icon: <FaNodeJs className="text-green-600" /> },
     ],
   },
   {
-    category: "Others",
-    icon: <FaCubes className="text-purple-400 text-3xl" />,
-    items: [
-      { name: "Git", icon: <FaGithub className="text-white" /> },
-      { name: "GitHub", icon: <FaGithub className="text-gray-300" /> },
-      { name: "BASH", icon: <FaTerminal className="text-green-300" /> },
+    title: "MERN Stack Mobile",
+    description: "Full JavaScript stack for scalable mobile applications",
+    icon: <FaLaptopCode className="text-blue-400 text-3xl" />,
+    tech: [
+      { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
+      { name: "Express.js", icon: <SiExpress className="text-gray-300" /> },
+      { name: "React Native", icon: <FaReact className="text-cyan-400" /> },
+      { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
+    ],
+  },
+
+  {
+    title: "Android Native",
+    description: "Native Android development",
+    icon: <FaMobileAlt className="text-green-500 text-3xl" />,
+    tech: [
+      { name: "Java", icon: <FaJava className="text-orange-500" /> },
+      { name: "Android SDK", icon: <FaMobileAlt className="text-green-500" /> },
+      { name: "Gradle", icon: <FaTools className="text-green-400" /> },
+    ],
+  },
+
+  {
+    title: "Java Desktop Apps",
+    description: "Cross-platform desktop applications using Java",
+    icon: <FaLaptopCode className="text-gray-400 text-3xl" />,
+    tech: [
+      { name: "Java", icon: <DiJava className="text-orange-500" /> },
+      { name: "JavaFX", icon: <DiJava className="text-red-500" /> },
+      { name: "Java Swing", icon: <DiJava className="text-yellow-500" /> },
+      { name: "SceneBuilder", icon: <FaCogs className="text-gray-500" /> },
+      { name: "Ant", icon: <FaTools className="text-red-400" /> },
+      { name: "Maven", icon: <FaTools className="text-orange-400" /> },
+      { name: "Gradle", icon: <FaTools className="text-green-400" /> },
+    ],
+  },
+
+  {
+    title: "C# Windows Forms",
+    description: "Windows desktop application development",
+    icon: <FaWindows className="text-blue-400 text-3xl" />,
+    tech: [
+      { name: "C#", icon: <SiSharp className="text-purple-400" /> },
+      { name: ".NET", icon: <SiDotnet className="text-blue-500" /> },
+      { name: "Windows Forms", icon: <FaWindows className="text-blue-400" /> },
+    ],
+  },
+  {
+    title: "Core Engineering & Systems",
+    description:
+      "Low-level tools, operating systems, and development fundamentals",
+    icon: <FaTools className="text-yellow-400 text-3xl" />,
+    tech: [
+      { name: "Java", icon: <DiJava className="text-orange-500" /> },
+      { name: "Python", icon: <SiPython className="text-blue-400" /> },
+      { name: "C", icon: <SiC className="text-gray-400" /> },
+      { name: "C++", icon: <SiCplusplus className="text-blue-600" /> },
+      { name: "PHP", icon: <SiPhp className="text-indigo-400" /> },
+      { name: "C#", icon: <SiSharp className="text-purple-400" /> },
       {
         name: "Linux Administration",
-        icon: <FaLinux className="text-yellow-500" />,
+        icon: <SiLinux className="text-yellow-400" />,
       },
+      { name: "Bash / Shell", icon: <FaTerminal className="text-green-300" /> },
+      { name: "Git", icon: <FaGithub className="text-white" /> },
+      { name: "GitHub", icon: <FaGithub className="text-gray-300" /> },
+
+      { name: "Postman", icon: <SiPostman className="text-orange-400" /> },
+      { name: "Networking Basics", icon: <FaCogs className="text-gray-400" /> },
     ],
   },
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const card = {
+  hidden: { opacity: 0, y: 25 },
+  show: { opacity: 1, y: 0 },
+};
+
 const Skills = () => {
   return (
-    <Section className="text-center py-10 min-h-[80vh]" tag="section">
-      <h1 className="desktop:text-5xl tablet:text-5xl  mobile:text-4xl small:text-2xl font-bold text-blue-400 flex items-center justify-center gap-3">
-        <FaTools className="text-6xl text-blue-400 animate-pulse" /> Technical
-        Skills
+    <Section className="text-center py-20 min-h-[80vh]" tag="section">
+      <h1 className="text-4xl font-semibold text-blue-400 flex items-center justify-center gap-3 mb-4">
+        <FaTools className="text-5xl animate-pulse" />
+        Multi-Stack Technical Portfolio
       </h1>
-      <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6 mt-10 px-4 tablet:px-10 desktop:px-20">
-        {skills.map((group, index) => (
-          <div
-            key={index}
-            className="bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 p-4 rounded-xl shadow-md 
-            transition-all duration-150 transform hover:shadow-[0px_0px_30px_6px_rgba(59,130,246,0.7)] 
-            hover:bg-gradient-to-t hover:from-gray-900 hover:to-gray-800"
+
+      <p className="text-gray-400 mb-16 max-w-2xl mx-auto">
+        I have experience across multiple ecosystems from web, mobile, to
+        desktop, using real-world industry stacks.
+      </p>
+
+      <motion.div
+        className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6 max-w-6xl mx-auto px-4"
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
+        {stacks.map((stack, i) => (
+          <motion.div
+            key={i}
+            variants={card}
+            className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-blue-500/40 transition"
           >
-            <h2 className="text-2xl small:text-[20px] font-semibold text-blue-400 mb-5 flex items-center justify-center gap-2 transition-all duration-150 hover:text-blue-300">
-              <span>{group.icon}</span>
-              <span>{group.category}</span>
+            <h2 className="text-xl font-semibold text-blue-400 mb-2 flex justify-center items-center gap-2">
+              {stack.icon}
+              {stack.title}
             </h2>
+
+            <p className="text-gray-400 text-sm mb-6">{stack.description}</p>
+
             <div className="flex flex-wrap justify-center gap-4">
-              {group.items.map((skill, i) => (
+              {stack.tech.map((item, j) => (
                 <div
-                  key={i}
-                  className="flex items-center space-x-3 text-lg text-gray-300 transition-all duration-150 
-                  hover:text-white transform hover:scale-110"
+                  key={j}
+                  className="flex items-center gap-2 text-gray-300 hover:text-white hover:scale-105 transition"
                 >
-                  <span className="text-3xl text-blue-400 transition-all duration-150 hover:rotate-6 hover:scale-125">
-                    {skill.icon}
-                  </span>
-                  <span className="transition-all duration-150 hover:text-blue-400">
-                    {skill.name}
-                  </span>
+                  <span className="text-xl text-blue-400">{item.icon}</span>
+                  <span className="text-sm">{item.name}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </Section>
   );
 };
