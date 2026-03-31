@@ -17,10 +17,10 @@ const Resume = () => {
     <Section className="bg-black min-h-screen h-full text-white font-jetBrains">
       <Nav />
       <Header />
+      <Experience />
+      <Skills />
       <Education />
       <Certifications />
-      <Skills />
-      <Experience />
       <Section className="bg-black text-white py-20 px-6" tag="section">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           <a

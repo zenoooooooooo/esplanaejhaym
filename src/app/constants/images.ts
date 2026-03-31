@@ -19,6 +19,10 @@ const images: IImages[] = [
     src: "/images/unwind.jpg",
     name: "Unwinding",
   },
+  {
+    src: "/images/graduation.jpg",
+    name: "Graduation Picture",
+  },
 ];
 
 export default images;
