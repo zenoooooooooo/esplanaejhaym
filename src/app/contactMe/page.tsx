@@ -22,7 +22,6 @@ interface IEmail {
 
 const sendEmail = async (url: string, { arg }: { arg: IEmail }) => {
   if (!navigator.onLine) {
-    toast.error("You are offline.");
     throw new Error("offline");
   }
 
@@ -33,7 +32,6 @@ const sendEmail = async (url: string, { arg }: { arg: IEmail }) => {
   });
 
   if (!res.ok) {
-    toast.error("Message failed.");
     throw new Error("failed");
   }
 
@@ -45,18 +43,30 @@ const ContactMe: React.FC = () => {
   const { trigger, isMutating } = useSWRMutation("/api/email", sendEmail);
 
   const onSubmit = async (data: IEmail) => {
-    try {
-      await trigger(data);
-      toast.success("Message sent!");
-      reset();
-    } catch {
-      toast.error("Something went wrong.");
-    }
+    await toast.promise(trigger(data), {
+      pending: "Sending message...",
+      success: "Message sent successfully!",
+      error: "Failed to send message.",
+    });
+
+    reset();
   };
 
   return (
     <Section className="bg-black min-h-screen h-full text-white font-jetBrains">
-      <ToastContainer position="top-center" theme="dark" transition={Slide} />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Slide}
+      />
       <Nav />
 
       <Section className="px-6 pb-6 max-w-6xl mx-auto">
@@ -72,7 +82,6 @@ const ContactMe: React.FC = () => {
 
         <div className="grid grid-cols-1 desktop:grid-cols-12 gap-8">
           <div className="desktop:col-span-4 space-y-6">
-
             <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5 hover:border-blue-500/40 transition max-w-2xl mx-auto md:mx-0">
               <h2 className="text-xl text-blue-300 font-semibold">
                 Developer Profile

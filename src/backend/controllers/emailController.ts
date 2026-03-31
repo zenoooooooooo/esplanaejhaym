@@ -1,5 +1,8 @@
 import nodemailer from "nodemailer";
 
+const emailUser = process.env.EMAIL_USER;
+const password = process.env.EMAIL_PASS;
+
 async function sendEmail(name: string, email: string, message: string) {
   try {
     const transporter = nodemailer.createTransport({
@@ -7,14 +10,14 @@ async function sendEmail(name: string, email: string, message: string) {
       port: 465,
       secure: true,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: emailUser,
+        pass: password,
       },
     });
 
     const mailOptions = {
       from: `"${name}" <${email}>`,
-      to: process.env.EMAIL_USER,
+      to: emailUser,
       subject: "New Contact Form Message",
       text: `You received a new message from ${name} (${email}):\n\n${message}`,
     };
