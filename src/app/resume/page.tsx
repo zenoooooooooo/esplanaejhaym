@@ -21,26 +21,59 @@ const Resume = () => {
       <Certifications />
       <Skills />
       <Experience />
-      <Section className="flex flex-col justify-center items-center gap-4 min-h-[20vh]">
-        <a
-          href="/documents/Esplana-Resume.pdf"
-          download="Esplana-Resume.pdf"
-          className="bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 p-8 rounded-2xl shadow-lg 
-              transition-all duration-150 transform hover:shadow-[0px_0px_40px_8px_rgba(59,130,246,0.7)] 
-              hover:bg-gradient-to-t hover:from-gray-900 hover:to-gray-800  text-white px-8 py-4 flex items-center gap-3 text-lg font-semibold"
-        >
-          <FaDownload className="text-xl animate-bounce" />
-          Download PDF Version
-        </a>
-        <Link
-          href="/projects"
-          className="bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 p-8 rounded-2xl shadow-lg 
-              transition-all duration-150 transform hover:shadow-[0px_0px_40px_8px_rgba(59,130,246,0.7)] 
-              hover:bg-gradient-to-t hover:from-gray-900 hover:to-gray-800  text-white px-8 py-4 flex items-center gap-3 text-lg font-semibold"
-        >
-          <FaProjectDiagram className="text-xl animate-pulse" />
-          See Projects
-        </Link>
+      <Section className="bg-black text-white py-20 px-6" tag="section">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a
+            href="/documents/Esplana-Resume.pdf"
+            download="Esplana-Resume.pdf"
+            className="
+            group bg-neutral-900 border border-neutral-800
+            rounded-xl p-6
+            flex items-center gap-4
+            transition-all duration-300
+            hover:border-blue-500/50
+            hover:shadow-lg hover:shadow-blue-500/10
+          "
+          >
+            <div className="p-3 rounded-lg bg-neutral-800 group-hover:bg-neutral-700 transition">
+              <FaDownload className="text-xl text-blue-400" />
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-white">
+                Download Resume
+              </h3>
+              <p className="text-sm text-neutral-400">
+                Get a PDF version of my CV
+              </p>
+            </div>
+          </a>
+
+          <Link
+            href="/projects"
+            className="
+            group bg-neutral-900 border border-neutral-800
+            rounded-xl p-6
+            flex items-center gap-4
+            transition-all duration-300
+            hover:border-blue-500/50
+            hover:shadow-lg hover:shadow-blue-500/10
+          "
+          >
+            <div className="p-3 rounded-lg bg-neutral-800 group-hover:bg-neutral-700 transition">
+              <FaProjectDiagram className="text-xl text-blue-400" />
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-white">
+                View Projects
+              </h3>
+              <p className="text-sm text-neutral-400">
+                Explore my development work
+              </p>
+            </div>
+          </Link>
+        </div>
       </Section>
     </Section>
   );
