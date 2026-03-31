@@ -1,93 +1,114 @@
 "use client";
-import React, { useState } from "react";
-import { Nav, Section, Card } from "../components";
-import { projects } from "../constants";
-import { FaFilter, FaProjectDiagram } from "react-icons/fa";
 
-const companies = [
-  { title: "Personal Projects", subtitle: "Personal Project" },
-  { title: "School Projects", subtitle: "School Project" },
-  { title: "Infoshift Inc.", subtitle: "Infoshift Inc." },
-  {
-    title: "ALPHA",
-    subtitle:
-      "ALPHA : Alliance of Leading Programmers through Heuristic Adaptation",
-  },
-];
+import React, { useMemo } from "react";
+import { motion } from "framer-motion";
+import { Nav, Section } from "../components";
+import { projects } from "../constants";
+import { FaProjectDiagram } from "react-icons/fa";
 
 const Projects = () => {
-  const [company, setCompany] = useState<string>("All Projects");
-  const [visible, setVisible] = useState(false);
+  const groupedByYear = useMemo(() => {
+    return projects.reduce(
+      (acc, project) => {
+        const year = project.year || "Unknown";
+        if (!acc[year]) acc[year] = [];
+        acc[year].push(project);
+        return acc;
+      },
+      {} as Record<string, typeof projects>,
+    );
+  }, [projects]);
+
+  const sortedYears = Object.keys(groupedByYear).sort(
+    (a, b) => Number(b) - Number(a),
+  );
+
   return (
-    <>
-      <Section className="bg-black min-h-screen h-full text-white font-jetBrains">
-        <Nav />
-        <Section
-          className="desktop:p-12 tablet:p-4 mobile:p-2 h-[100%]"
-          tag="main"
-        >
-          <div className="flex items-center m-0 justify-between">
-            <h1 className="text-5xl font-bold text-blue-400 small:text-[20px] flex items-center justify-center gap-3 mobile:text-2xl tablet:text-[30px] desktop:text-4xl m-4">
-              <FaProjectDiagram className="text-6xl text-blue-400 animate-pulse" />
-              Timeline - {company}
-            </h1>
+    <Section className="bg-black min-h-screen h-full text-white font-jetBrains">
+      <Nav />
 
-            <div className="relative m-4">
-              <h1
-                className="hover:cursor-pointer"
-                onClick={() => setVisible((prev) => !prev)}
-              >
-                <FaFilter />
-              </h1>
+      <div className="text-center mb-16">
+        <h1 className="text-4xl md:text-5xl font-semibold text-blue-400 flex items-center justify-center gap-3">
+          <FaProjectDiagram className="text-5xl animate-pulse" />
+          Projects Timeline
+        </h1>
 
-              <div
-                className={`z-[999] absolute right-0 mt-2 bg-black shadow-xl border border-gray-600 rounded-lg p-4 w-56 transition-all duration-300 ease-in-out ${
-                  visible ? "max-h-auto opacity-100" : "max-h-0 opacity-0"
-                } overflow-hidden`}
-              >
-                <h1
-                  className="group px-4 py-2 rounded-lg hover:bg-gray-700 text-white text-lg font-medium cursor-pointer transition-all duration-300 active:opacity-70"
-                  onClick={() => setCompany("All Projects")}
-                >
-                  All Projects
-                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 ease-in-out h-[2px] bg-white"></span>
-                </h1>
-                {companies.map((company) => (
-                  <h1
-                    className="group px-4 py-2 rounded-lg hover:bg-gray-700 text-white text-lg font-medium cursor-pointer transition-all duration-300 active:opacity-70"
-                    key={company.title}
-                    onClick={() => setCompany(company.subtitle)}
-                  >
-                    {company.title}
-                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 ease-in-out h-[2px] bg-white"></span>
-                  </h1>
-                ))}
+        <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          A chronological showcase of my software engineering journey by year.
+        </p>
+      </div>
+
+      <div className="relative max-w-5xl mx-auto">
+        <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 w-[2px] h-full bg-neutral-800" />
+
+        <div className="space-y-20">
+          {sortedYears.map((year) => (
+            <div key={year} className="relative">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl font-bold text-blue-400 bg-neutral-900 inline-block px-4 py-2 rounded-xl border border-neutral-800">
+                  {year}
+                </h2>
+              </div>
+              <div className="space-y-14">
+                {groupedByYear[year].map((project, index) => {
+                  const isLeft = index % 2 === 0;
+
+                  return (
+                    <motion.div
+                      key={project.title}
+                      initial={{ opacity: 0, x: isLeft ? -60 : 60 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4 }}
+                      viewport={{ once: true }}
+                      className={`relative flex flex-col md:flex-row ${
+                        isLeft ? "md:justify-start" : "md:justify-end"
+                      } pl-12 md:pl-0`}
+                    >
+                      <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-6 w-4 h-4 rounded-full bg-blue-400" />
+
+                      <div className="w-full md:w-[45%] bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-blue-500/40 transition">
+                        <h3 className="text-xl font-semibold">
+                          {project.title}
+                        </h3>
+
+                        <p className="text-neutral-400 text-sm">
+                          {project.category}
+                        </p>
+
+                        <p className="text-neutral-300 mt-3 text-sm">
+                          {project.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {project.technologies?.map((tech) => (
+                            <span
+                              key={tech}
+                              className="text-xs px-2 py-1 bg-neutral-800 rounded-md"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            className="text-blue-400 text-sm mt-4 inline-block hover:underline"
+                          >
+                            View Project →
+                          </a>
+                        )}
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
-          </div>
-
-          <hr className="text-white m-4" />
-          {projects
-            .filter(
-              (project) =>
-                company === "All Projects" || project.company === company
-            )
-            .map((project, index) => (
-              <Card
-                key={index}
-                title={project.title}
-                description={project.description}
-                year={project.year}
-                technologies={project.technologies}
-                category={project.category}
-                completed={project.completed}
-                company={project.company}
-                link={project.link}
-              />
-            ))}
-        </Section>
-      </Section>
-    </>
+          ))}
+        </div>
+      </div>
+    </Section>
   );
 };
 
