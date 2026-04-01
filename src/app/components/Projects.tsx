@@ -24,15 +24,14 @@ const Projects = () => {
   );
 
   return (
-    <Section className="bg-black min-h-screen h-full text-white font-jetBrains">
-      <Nav />
-      <Section className="bg-black text-white px-6" tag="section">
-        <h1 className="text-4xl font-semibold text-blue-400 flex items-center justify-center gap-3 mb-4">
-          <FaProjectDiagram className="text-5xl animate-pulse" />
+    <Section className="absolute z-10 w-full h-screen overflow-y-auto px-6">
+      <Section className=" text-white py-40 px-6" tag="section">
+        <h1 className="text-2xl text-center sm:text-3xl md:text-4xl font-semibold text-blue-400 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+          <FaProjectDiagram className="text-3xl sm:text-4xl md:text-5xl animate-pulse" />
           Projects Timeline
         </h1>
 
-        <p className="text-gray-400 text-center mt-4 max-w-2xl mx-auto">
+        <p className="text-gray-400 text-center text-sm sm:text-base md:text-lg max-w-md sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
           A chronological showcase of my software engineering journey by year.
         </p>
 

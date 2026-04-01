@@ -12,7 +12,7 @@ import {
   FaPaperPlane,
   FaEnvelopeOpenText,
 } from "react-icons/fa";
-import { Section, Nav } from "../components";
+import { Section, Nav } from ".";
 
 interface IEmail {
   name: string;
@@ -38,7 +38,7 @@ const sendEmail = async (url: string, { arg }: { arg: IEmail }) => {
   return res.json();
 };
 
-const ContactMe: React.FC = () => {
+const Contact: React.FC = () => {
   const { register, handleSubmit, reset } = useForm<IEmail>();
   const { trigger, isMutating } = useSWRMutation("/api/email", sendEmail);
 
@@ -53,7 +53,7 @@ const ContactMe: React.FC = () => {
   };
 
   return (
-    <Section className="bg-black min-h-screen h-full text-white font-jetBrains">
+    <Section className="absolute z-10 w-full h-screen overflow-y-auto px-6">
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
@@ -67,19 +67,21 @@ const ContactMe: React.FC = () => {
         theme="dark"
         transition={Slide}
       />
-      <Nav />
 
-      <Section className="px-6 pb-6 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-semibold text-blue-400 flex items-center justify-center gap-3 mb-4">
-            <FaEnvelopeOpenText className="text-5xl animate-pulse" />
-            Contact Console
+      <Section
+        className=" text-white pt-40 pb-6 max-w-6xl mx-auto"
+        tag="section"
+      >
+        <div className="text-center mb-10 sm:mb-16 px-4">
+          <h1 className="text-2xl text-center sm:text-3xl md:text-4xl font-semibold text-blue-400 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <FaEnvelopeOpenText className="text-3xl sm:text-4xl md:text-5xl animate-pulse" />
+            <span>Contact Console</span>
           </h1>
-          <p className="text-gray-400 text-center mb-16 max-w-2xl mx-auto">
+
+          <p className="text-gray-400 text-center text-sm sm:text-base md:text-lg max-w-md sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
             Reach out through any channel or send a direct message.
           </p>
         </div>
-
         <div className="grid grid-cols-1 desktop:grid-cols-12 gap-8">
           <div className="desktop:col-span-4 space-y-6">
             <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5 hover:border-blue-500/40 transition max-w-2xl mx-auto md:mx-0">
@@ -204,4 +206,4 @@ const ContactMe: React.FC = () => {
   );
 };
 
-export default ContactMe;
+export default Contact;

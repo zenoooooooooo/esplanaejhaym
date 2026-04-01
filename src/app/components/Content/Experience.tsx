@@ -5,13 +5,13 @@ import { experience } from "../../constants";
 
 const Experience = () => {
   return (
-    <Section className="bg-black text-white py-20 px-6" tag="section">
-      <h1 className="text-4xl font-semibold text-blue-400 flex items-center justify-center gap-3 mb-4">
-        <FaBriefcase className="text-5xl animate-pulse" />
+    <Section className=" text-white py-20 px-6" tag="section">
+      <h1 className="text-2xl text-center sm:text-3xl md:text-4xl font-semibold text-blue-400 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+        <FaBriefcase className="text-3xl sm:text-4xl md:text-5xl animate-pulse" />
         Experience
       </h1>
 
-      <p className="text-gray-400 text-center mb-16 max-w-2xl mx-auto">
+      <p className="text-gray-400 mb-16 text-center text-sm sm:text-base md:text-lg max-w-md sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
         Professional experience across full-stack development, backend systems,
         and engineering roles.
       </p>

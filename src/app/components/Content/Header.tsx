@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <Section
-      className="bg-black text-white flex flex-col desktop:flex-row items-center min-h-[80vh] justify-center desktop:p-20 mobile:p-4"
+      className=" text-white flex flex-col desktop:flex-row items-center min-h-[80vh] justify-center desktop:p-20 mobile:p-4"
       tag="section"
     >
       <img
