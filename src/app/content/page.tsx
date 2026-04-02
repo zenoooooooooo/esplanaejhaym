@@ -7,7 +7,18 @@ import { Canvas } from "@react-three/fiber";
 import { Resume, Projects, Contact, Journey} from "../components"
 
 const Content = () => {
-  const searchParams = useSearchParams();
+ 
+
+  return (
+    <Suspense fallback={<CanvasLoader />}>
+      <ContentInner />
+    </Suspense>
+  );
+};
+
+
+const ContentInner = () => {
+   const searchParams = useSearchParams();
   const page = searchParams.get("page") || "resume";
 
   const renderPage = () => {
@@ -24,9 +35,8 @@ const Content = () => {
         return <Resume />;
     }
   };
-
   return (
-    <Section className="bg-black text-white font-jetBrains">
+     <Section className="bg-black text-white font-jetBrains">
       <Nav absolute />
 
       {renderPage()}
@@ -35,12 +45,12 @@ const Content = () => {
         className="fixed inset-0 z-0 pointer-events-none"
         style={{ height: "100vh", width: "100vw" }}
       >
-        <Suspense fallback={<CanvasLoader />}>
+       
           <StarField count={8000} />
-        </Suspense>
+  
       </Canvas>
     </Section>
-  );
-};
+  )
+}
 
 export default Content;
