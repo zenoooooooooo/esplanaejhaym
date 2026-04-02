@@ -45,7 +45,8 @@ const AboutMe = () => {
             <img
               src={images[6].src}
               alt={images[6].name}
-              className="w-[340px] h-[340px] rounded-full object-cover border-4 border-gray-700 "
+              className="w-[340px] h-[340px] shadow-md transition-all duration-300 ease-in-out 
+        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700 "
             />
           </motion.div>
 
@@ -53,8 +54,7 @@ const AboutMe = () => {
             variants={isDesktop ? fadeRight : fadeUp}
             className="max-w-4xl"
           >
-            <h1 className="shadow-md transition-all duration-300 ease-in-out 
-        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">
                 Hello again, I’m E-Jhay Esplana
               </span>
@@ -81,8 +81,7 @@ const AboutMe = () => {
             variants={isDesktop ? fadeLeft : fadeUp}
             className="max-w-4xl order-2 desktop:order-1"
           >
-            <h1 className="shadow-md transition-all duration-300 ease-in-out 
-        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">Challenge is fun</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
@@ -101,7 +100,8 @@ const AboutMe = () => {
             variants={isDesktop ? fadeLeft : fadeUp}
             src={images[10].src}
             alt={images[10].name}
-            className="w-[340px] h-[340px] rounded-full object-cover border-4 border-gray-700 shadow-md order-1 desktop:order-2"
+            className="w-[340px] h-[340px] shadow-md transition-all duration-300 ease-in-out 
+        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700 = order-1 desktop:order-2"
           />
         </motion.section>
 
@@ -167,15 +167,15 @@ const AboutMe = () => {
             variants={isDesktop ? fadeRight : fadeUp}
             src={images[8].src}
             alt={images[8].name}
-            className="w-[340px] h-[340px] rounded-full object-cover border-4 border-gray-700"
+            className="w-[340px] h-[340px] shadow-md transition-all duration-300 ease-in-out 
+        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700"
           />
 
           <motion.div
             variants={isDesktop ? fadeRight : fadeUp}
             className="max-w-4xl"
           >
-            <h1 className="shadow-md transition-all duration-300 ease-in-out 
-        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">
                 Takes, takes, takes, checkmate!
               </span>
@@ -202,8 +202,7 @@ const AboutMe = () => {
             variants={isDesktop ? fadeLeft : fadeUp}
             className="max-w-4xl order-2 desktop:order-1"
           >
-            <h1 className="shadow-md transition-all duration-300 ease-in-out 
-        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">Cube connoisseur</span>
             </h1>
 
@@ -222,7 +221,8 @@ const AboutMe = () => {
             variants={isDesktop ? fadeLeft : fadeUp}
             src={images[9].src}
             alt={images[9].name}
-            className="w-[340px] h-[340px] rounded-full object-cover border-4 border-gray-700 shadow-md order-1 desktop:order-2"
+            className="w-[340px] h-[340px] shadow-md transition-all duration-300 ease-in-out 
+        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700  order-1 desktop:order-2"
           />
         </motion.section>
 
@@ -237,7 +237,8 @@ const AboutMe = () => {
             variants={fadeUp}
             src={gifs[0].src}
             alt={gifs[0].name}
-            className="w-[620px] rounded-xl border-2 border-gray-700 mb-6"
+            className="w-[620px] rounded-xl border-2 border-gray-700 mb-6 shadow-md transition-all duration-300 ease-in-out 
+        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)]"
           />
 
           <motion.h1
@@ -360,7 +361,8 @@ const AboutMe = () => {
             variants={fadeUp}
             src={images[2].src}
             alt={images[2].name}
-            className="w-[320px] h-[320px] rounded-full object-cover border-4 border-gray-700 mb-8"
+            className="w-[320px] h-[320px] shadow-md transition-all duration-300 ease-in-out 
+        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700 mb-8"
           />
           <motion.h1
             variants={fadeUp}
@@ -389,7 +391,8 @@ const AboutMe = () => {
             variants={fadeUp}
             src={images[4].src}
             alt={images[4].name}
-            className="w-[320px] h-[320px] rounded-full object-cover border-4 border-gray-700 mb-8"
+            className="w-[320px] h-[320px] shadow-md transition-all duration-300 ease-in-out 
+        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700 mb-8"
           />
 
           <motion.blockquote
