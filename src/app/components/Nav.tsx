@@ -62,7 +62,7 @@ const Nav = ({ absolute = false }) => {
               className="desktop:text-[20px] tablet:text-[16px] my-2 p-2 cursor-pointer"
               onClick={() => changePage(link.href)}
             >
-              {link.text}
+              <span className="bg-black rounded-xl p-2">{link.text}</span>
             </li>
           ))}
         </ul>

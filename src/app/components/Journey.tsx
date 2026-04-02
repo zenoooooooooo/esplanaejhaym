@@ -27,7 +27,7 @@ const Journey = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6 }}
               className="md:flex md:justify-end"
             >
@@ -53,7 +53,7 @@ const Journey = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6 }}
               className="md:flex md:justify-start"
             >
@@ -98,7 +98,7 @@ const Journey = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6 }}
               className="md:flex md:justify-end"
             >
@@ -124,7 +124,7 @@ const Journey = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6 }}
               className="md:flex md:justify-end"
             >
@@ -187,7 +187,7 @@ const Journey = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6 }}
               className="md:flex md:justify-end"
             >
@@ -214,7 +214,7 @@ const Journey = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6 }}
               className="md:flex md:justify-start"
             >
@@ -259,7 +259,7 @@ const Journey = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6 }}
               className="md:flex md:justify-start"
             >
@@ -303,7 +303,7 @@ const Journey = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6 }}
               className="md:flex md:justify-start"
             >
