@@ -17,3 +17,8 @@ export { default as Certifications } from "./Content/Certifications";
 export { default as Experience } from "./Content/Experience";
 
 export { default as AboutMeContent } from "./Content/AboutMe";
+
+export { default as Resume } from "./Resume";
+export { default as Projects } from "./Projects";
+export { default as Contact } from "./Contact";
+export { default as Journey } from "./Journey";

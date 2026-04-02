@@ -4,9 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { Nav, Section, CanvasLoader, StarField } from "../components";
 import { Canvas } from "@react-three/fiber";
 
-import Resume from "../components/Resume";
-import Projects from "../components/Projects";
-import Contact from "../components/Contact";
+import { Resume, Projects, Contact, Journey} from "../components"
 
 const Content = () => {
   const searchParams = useSearchParams();
@@ -19,6 +17,9 @@ const Content = () => {
       case "contact":
         return <Contact />;
       case "resume":
+        return <Resume />;
+      case "journey":
+        return <Journey />
       default:
         return <Resume />;
     }
