@@ -1,3 +1,4 @@
+"use client"
 import { useFrame } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
@@ -65,10 +66,10 @@ function StarField({ count = 8000 }) {
         <pointsMaterial
           vertexColors
           size={0.2}
-          map={starTexture} 
+          map={starTexture}
           transparent={true}
-          depthWrite={false} 
-          blending={THREE.AdditiveBlending} 
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
         />
       </points>
     </>

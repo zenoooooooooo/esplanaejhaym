@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Html, useGLTF } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
-import { useFrame, useThree, Vector3 } from "@react-three/fiber";
+import { useThree } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
-import { MdFlashlightOff, MdFlashlightOn } from "react-icons/md";
 interface MyRoomProps {
   scale?: number;
   position?: number[];
