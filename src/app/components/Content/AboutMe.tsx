@@ -81,11 +81,11 @@ const AboutMe = () => {
             variants={isDesktop ? fadeRight : fadeUp}
             className="max-w-4xl px-2"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4">
+            <h1 className="text-xl sm:text-2xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">Who am I?</span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
               <span className="bg-black rounded">
                 I’m a 19-year-old IT student and full-stack developer from
                 Cainta, Rizal, Philippines. I'm a philomath, deeply in love with
@@ -106,10 +106,10 @@ const AboutMe = () => {
             variants={isDesktop ? fadeLeft : fadeUp}
             className="max-w-4xl order-2 desktop:order-1"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4">
+            <h1 className="text-xl sm:text-2xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">Challenge is fun</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
               <span className="bg-black rounded">
                 Out of all the things I am studying, I find languages the most
                 difficult, and that’s exactly what makes them fun. I enjoy
@@ -158,7 +158,7 @@ const AboutMe = () => {
 
           <motion.h1
             variants={fadeUp}
-            className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4"
+            className="text-xl sm:text-2xl md:text-5xl font-bold text-blue-400 mb-4"
           >
             <span className="bg-black rounded">
               Playing feels better than listening
@@ -167,7 +167,7 @@ const AboutMe = () => {
 
           <motion.p
             variants={fadeUp}
-            className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl"
+            className="text-sm sm:text-base md:text-lg text-gray-300 max-w-4xl"
           >
             <span className="bg-black rounded">
               I’m also a musician. I play several instruments including piano,
@@ -200,12 +200,12 @@ const AboutMe = () => {
             variants={isDesktop ? fadeRight : fadeUp}
             className="max-w-4xl px-2"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4">
+            <h1 className="text-xl sm:text-2xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">
                 Takes, takes, takes, checkmate!
               </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
               <span className="bg-black rounded">
                 I also enjoy chess. I like the mental challenge, the strategy,
                 and the mind games involved in every move. It’s not just a game
@@ -227,11 +227,11 @@ const AboutMe = () => {
             variants={isDesktop ? fadeLeft : fadeUp}
             className="max-w-4xl order-2 desktop:order-1"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4">
+            <h1 className="text-xl sm:text-2xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">Cube connoisseur</span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
               <span className="bg-black rounded">
                 I also collect and solve different types of Rubik’s cubes, from
                 2x2 up to 7x7, along with puzzles like the pyraminx, megaminx,
@@ -268,14 +268,14 @@ const AboutMe = () => {
 
           <motion.h1
             variants={fadeUp}
-            className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4"
+            className="text-xl sm:text-2xl md:text-5xl font-bold text-blue-400 mb-4"
           >
             → ☆ ↓ ↘ + 2 = Happiness
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl"
+            className="text-sm sm:text-base md:text-lg text-gray-300 max-w-4xl"
           >
             <span className="bg-black rounded">
               I play Tekken (from Tekken 6 to Tekken 8) and I regularly host
@@ -295,14 +295,14 @@ const AboutMe = () => {
         >
           <motion.h1
             variants={fadeUp}
-            className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4"
+            className="text-xl sm:text-2xl md:text-5xl font-bold text-blue-400 mb-4"
           >
             <span className="bg-black rounded">Poetry is human</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl"
+            className="text-sm sm:text-base md:text-lg text-gray-300 max-w-4xl"
           >
             <span className="bg-black rounded">
               I also spend time writing poetry and reflections. I write about
@@ -326,7 +326,7 @@ const AboutMe = () => {
             className="text-sm sm:text-base text-gray-400 tracking-wide mb-6"
           >
             <span className="bg-black rounded">
-              21st and 22nd poems in my own poetry book
+              21st & 22nd poems from my collection I wrote
             </span>
           </motion.p>
 
@@ -391,11 +391,11 @@ const AboutMe = () => {
           />
           <motion.h1
             variants={fadeUp}
-            className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4"
+            className="text-xl sm:text-2xl md:text-5xl font-bold text-blue-400 mb-4"
           >
             <span className="bg-black rounded">YOLOOOOO</span>
           </motion.h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl">
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-4xl">
             <span className="bg-black rounded">
               For me, life is too short to limit yourself to just one path out
               of fear of not mastering everything. I’d rather explore, learn,

@@ -17,7 +17,7 @@ const Journey = () => {
 
         <p className="text-gray-400 mb-16 text-center text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
           My journey through competitions, seminars, hackathons, and community
-          involvement as a developer.
+          involvement as a developer and student.
         </p>
 
         <div className="relative max-w-5xl mx-auto px-4">
@@ -37,9 +37,9 @@ const Journey = () => {
                 </h2>
                 <p className="text-sm text-neutral-400">March 4, 2026</p>
                 <p className="text-sm text-neutral-300 mt-2">
-                  A school-wide general assembly introducing Alpha organization,
-                  including onboarding of new members, officer oath-taking, and
-                  interactive mini-games to build student engagement.
+                  I helped organize a school-wide general assembly for Alpha
+                  organization, featuring onboarding of new members, officer
+                  oath-taking, and interactive mini-games to engage students.
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
@@ -108,11 +108,11 @@ const Journey = () => {
                 </h2>
                 <p className="text-sm text-neutral-400">November 17–18, 2025</p>
                 <p className="text-sm text-neutral-300 mt-2">
-                  A multi-event tech festival we hosted featuring research
-                  congress, Python programming, ICT quiz bee, MLBB tournament,
-                  capstone symposium, Android app development (games &
-                  productivity apps), IoT systems, digital arts, and Sumobot
-                  competitions.
+                  I helped organize and host a multi-event tech festival
+                  featuring a research congress, Python programming, ICT quiz
+                  bee, MLBB tournament, capstone symposium, Android app
+                  development (games and productivity apps), IoT systems,
+                  digital arts, and Sumobot competitions.
                 </p>
 
                 <div className="mt-4">
@@ -201,7 +201,8 @@ const Journey = () => {
                 <p className="text-sm text-neutral-300 mt-2">
                   Student organization assemblies introducing Alpha, including
                   orientation, onboarding activities, and leadership engagement
-                  sessions.
+                  sessions, where I provided technical support for presentation
+                  setup, screen connectivity, and media management.
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
@@ -313,12 +314,14 @@ const Journey = () => {
                 </h2>
                 <p className="text-sm text-neutral-400">Nov 27–29, 2024</p>
                 <p className="text-sm text-neutral-300 mt-2">
-                  A large ICT event hosting esports tournaments (MLBB, CODM,
-                  Valorant, LoL, Tekken 7), 3D modeling, Android development,
-                  chess tournaments, web development, game dev challenges,
-                  research congress, and quiz bees. Participants from multiple
-                  schools also joined. This is the first event I facilitated as
-                  an ALPHA officer.
+                  A large ICT event that I helped facilitate as an ALPHA
+                  officer, featuring esports tournaments, 3D modeling, Android
+                  development, chess tournaments, web development, game
+                  development challenges, research congress, and quiz bees, with
+                  participants from multiple schools. I also contributed by
+                  developing participant registration web forms and facilitating
+                  competitions such as the chess tournament, inter-school
+                  hackathon web design, and mobile app development contest.
                 </p>
 
                 <div className="grid grid-cols-2 gap-3 mt-4">
