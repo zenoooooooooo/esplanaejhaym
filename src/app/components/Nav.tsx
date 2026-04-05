@@ -52,7 +52,7 @@ const Nav = ({ absolute = false }) => {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          visible ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"
+          visible ? "max-h-screen opacity-100 mt-4" : "max-h-0 opacity-0"
         }`}
       >
         <ul className="flex flex-col items-end">
