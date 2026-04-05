@@ -8,7 +8,7 @@ import Link from "next/link";
 const Landing = () => {
   const [headerText, { isType }] = useTypewriter({
     words: [
-      "Hi, My name is E-Jhay Esplana!",
+      "Hi, I'm E-Jhay Esplana!",
       "a Software Engineering student",
       "Specializing in Full-Stack Web Development, Mobile Development, and Desktop Development",
     ],
