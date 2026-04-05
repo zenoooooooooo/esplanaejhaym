@@ -47,7 +47,7 @@ const AboutMe = () => {
   return (
     <Section className="tablet:bg-black mobile:bg-black small:bg-black w-full min-h-screen desktop:h-[100vh] bg-transparent text-white font-jetBrains absolute z-[9999] top-0 overflow-auto">
       <ToastContainer
-        position="top-center"
+        position={isDesktop ? "top-center" : "bottom-center"}
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop

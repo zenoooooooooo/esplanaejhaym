@@ -314,14 +314,15 @@ const Journey = () => {
                 </h2>
                 <p className="text-sm text-neutral-400">Nov 27–29, 2024</p>
                 <p className="text-sm text-neutral-300 mt-2">
-                  A large ICT event that I helped facilitate as an ALPHA
-                  officer, featuring esports tournaments, 3D modeling, Android
-                  development, chess tournaments, web development, game
-                  development challenges, research congress, and quiz bees, with
-                  participants from multiple schools. I also contributed by
-                  developing participant registration web forms and facilitating
-                  competitions such as the chess tournament, inter-school
-                  hackathon web design, and mobile app development contest.
+                  A large ICT event that I helped facilitate for the first time
+                  as an ALPHA officer, featuring esports tournaments, 3D
+                  modeling, Android development, chess tournaments, web
+                  development, game development challenges, research congress,
+                  and quiz bees, with participants from multiple schools. I also
+                  contributed by developing participant registration web forms
+                  and facilitating competitions such as the chess tournament,
+                  inter-school hackathon web design, and mobile app development
+                  contest.
                 </p>
 
                 <div className="grid grid-cols-2 gap-3 mt-4">
