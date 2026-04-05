@@ -42,53 +42,55 @@ const Experience = () => {
                 </motion.div>
 
                 <div className="space-y-8 md:space-y-16">
-                  {exp.roles.map((role, i) => {
-                    const isMobile = true;
+                  {exp.roles.map((role, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{
+                        opacity: 0,
+                        x:
+                          typeof window !== "undefined" &&
+                          window.innerWidth < 768
+                            ? -60
+                            : isLeft
+                              ? -60
+                              : 60,
+                      }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      className={`
+    relative flex flex-col md:flex-row
+    md:items-center
+    ${isLeft ? "md:justify-start" : "md:justify-end"}
+    pl-8 md:pl-0
+  `}
+                    >
+                      <div className="absolute w-3 h-3 md:w-4 md:h-4 rounded-full bg-blue-400 shadow-lg shadow-blue-500/30 left-2 md:left-1/2 md:-translate-x-1/2 top-5" />
 
-                    return (
-                      <motion.div
-                        key={i}
-                        initial={{
-                          opacity: 0,
-                          x: isMobile ? -20 : isLeft ? -60 : 60,
-                        }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        className={`
-                          relative flex flex-col md:flex-row
-                          md:items-center
-                          ${isLeft ? "md:justify-start" : "md:justify-end"}
-                          pl-8 md:pl-0
-                        `}
+                      <div
+                        className={`w-full md:w-[48%] ${
+                          isLeft
+                            ? "md:mr-auto md:text-left"
+                            : "md:ml-auto md:text-left"
+                        }`}
                       >
-                        <div className="absolute w-3 h-3 md:w-4 md:h-4 rounded-full bg-blue-400 shadow-lg shadow-blue-500/30 left-2 md:left-1/2 md:-translate-x-1/2 top-5" />
-
-                        <div
-                          className={`w-full md:w-[48%] ${
-                            isLeft
-                              ? "md:mr-auto md:text-left"
-                              : "md:ml-auto md:text-left"
-                          }`}
-                        >
-                          <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 md:p-5 hover:border-blue-500/40 transition">
-                            <div className="flex flex-col gap-1">
-                              <h3 className="text-base sm:text-lg font-semibold text-white">
-                                {role.role}
-                              </h3>
-                              <span className="text-[10px] sm:text-xs text-neutral-500">
-                                {role.duration}
-                              </span>
-                            </div>
-
-                            <p className="mt-3 md:mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed">
-                              {role.responsibilities}
-                            </p>
+                        <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 md:p-5 hover:border-blue-500/40 transition">
+                          <div className="flex flex-col gap-1">
+                            <h3 className="text-base sm:text-lg font-semibold text-white">
+                              {role.role}
+                            </h3>
+                            <span className="text-[10px] sm:text-xs text-neutral-500">
+                              {role.duration}
+                            </span>
                           </div>
+
+                          <p className="mt-3 md:mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                            {role.responsibilities}
+                          </p>
                         </div>
-                      </motion.div>
-                    );
-                  })}
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             );

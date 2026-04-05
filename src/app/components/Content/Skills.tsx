@@ -203,7 +203,7 @@ const Skills = () => {
 
   return (
     <Section className="text-center text-white py-12 md:py-20 px-3 sm:px-6" tag="section">
-      {/* HEADER */}
+
       <h1 className="text-lg sm:text-2xl md:text-4xl font-semibold text-blue-400 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-2 md:mb-4">
         <FaTools className="text-2xl sm:text-4xl md:text-5xl animate-pulse" />
         Multi-Stack Technical Portfolio
@@ -214,7 +214,7 @@ const Skills = () => {
         desktop, using real-world industry stacks.
       </p>
 
-      {/* GRID */}
+
       <motion.div
         ref={ref}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto px-2 sm:px-4"
@@ -228,18 +228,18 @@ const Skills = () => {
             variants={card}
             className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 md:p-6 hover:border-blue-500/40 transition"
           >
-            {/* TITLE */}
+
             <h2 className="text-base sm:text-lg md:text-xl font-semibold text-blue-400 mb-2 flex justify-center items-center gap-2">
               <span className="text-xl md:text-3xl">{stack.icon}</span>
               {stack.title}
             </h2>
 
-            {/* DESCRIPTION */}
+
             <p className="text-gray-400 text-xs sm:text-sm mb-4 md:mb-6">
               {stack.description}
             </p>
 
-            {/* TECH STACK */}
+
             <div className="flex flex-wrap justify-center gap-2 md:gap-4">
               {stack.tech.map((item, j) => (
                 <div
