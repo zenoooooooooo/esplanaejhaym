@@ -197,26 +197,27 @@ const card = {
   hidden: { opacity: 0, y: 60 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
-
 const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <Section className="text-center text-white py-20 px-6" tag="section">
-      <h1 className="text-2xl text-center sm:text-3xl md:text-4xl font-semibold text-blue-400 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-        <FaTools className="text-3xl sm:text-4xl md:text-5xl animate-pulse" />
+    <Section className="text-center text-white py-12 md:py-20 px-3 sm:px-6" tag="section">
+      {/* HEADER */}
+      <h1 className="text-lg sm:text-2xl md:text-4xl font-semibold text-blue-400 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-2 md:mb-4">
+        <FaTools className="text-2xl sm:text-4xl md:text-5xl animate-pulse" />
         Multi-Stack Technical Portfolio
       </h1>
 
-      <p className="text-gray-400 text-center mb-16 text-sm sm:text-base md:text-lg max-w-md sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
+      <p className="text-gray-400 text-xs sm:text-sm md:text-lg max-w-md sm:max-w-xl md:max-w-2xl mx-auto mb-10 md:mb-16 px-2">
         I have experience across multiple ecosystems from web, mobile, to
         desktop, using real-world industry stacks.
       </p>
 
+      {/* GRID */}
       <motion.div
         ref={ref}
-        className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6 max-w-6xl mx-auto px-4"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto px-2 sm:px-4"
         variants={container}
         initial="hidden"
         animate={isInView && "show"}
@@ -225,23 +226,32 @@ const Skills = () => {
           <motion.div
             key={i}
             variants={card}
-            className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-blue-500/40 transition"
+            className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 md:p-6 hover:border-blue-500/40 transition"
           >
-            <h2 className="text-xl font-semibold text-blue-400 mb-2 flex justify-center items-center gap-2">
-              {stack.icon}
+            {/* TITLE */}
+            <h2 className="text-base sm:text-lg md:text-xl font-semibold text-blue-400 mb-2 flex justify-center items-center gap-2">
+              <span className="text-xl md:text-3xl">{stack.icon}</span>
               {stack.title}
             </h2>
 
-            <p className="text-gray-400 text-sm mb-6">{stack.description}</p>
+            {/* DESCRIPTION */}
+            <p className="text-gray-400 text-xs sm:text-sm mb-4 md:mb-6">
+              {stack.description}
+            </p>
 
-            <div className="flex flex-wrap justify-center gap-4">
+            {/* TECH STACK */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4">
               {stack.tech.map((item, j) => (
                 <div
                   key={j}
-                  className="flex items-center gap-2 text-gray-300 hover:text-white transition"
+                  className="flex items-center gap-1 md:gap-2 text-gray-300 hover:text-white transition"
                 >
-                  <span className="text-xl text-blue-400">{item.icon}</span>
-                  <span className="text-sm">{item.name}</span>
+                  <span className="text-lg md:text-xl text-blue-400">
+                    {item.icon}
+                  </span>
+                  <span className="text-[11px] sm:text-xs md:text-sm">
+                    {item.name}
+                  </span>
                 </div>
               ))}
             </div>

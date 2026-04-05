@@ -6,7 +6,6 @@ import { experience } from "../../constants";
 const Experience = () => {
   return (
     <Section className="text-white py-12 md:py-20 px-4 sm:px-6" tag="section">
-      {/* HEADER */}
       <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold text-blue-400 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-2 md:mb-4">
         <FaBriefcase className="text-2xl sm:text-4xl md:text-5xl animate-pulse" />
         Experience
@@ -17,7 +16,6 @@ const Experience = () => {
         and engineering roles.
       </p>
 
-      {/* TIMELINE WRAPPER */}
       <div className="relative max-w-5xl mx-auto px-2 sm:px-4">
         <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 h-full w-[2px] bg-neutral-800" />
 
@@ -27,7 +25,6 @@ const Experience = () => {
 
             return (
               <div key={index} className="relative">
-                {/* COMPANY HEADER */}
                 <motion.div
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +41,6 @@ const Experience = () => {
                   </div>
                 </motion.div>
 
-                {/* ROLES */}
                 <div className="space-y-8 md:space-y-16">
                   {exp.roles.map((role, i) => {
                     const isMobile = true;
@@ -66,10 +62,8 @@ const Experience = () => {
                           pl-8 md:pl-0
                         `}
                       >
-                        {/* DOT */}
                         <div className="absolute w-3 h-3 md:w-4 md:h-4 rounded-full bg-blue-400 shadow-lg shadow-blue-500/30 left-2 md:left-1/2 md:-translate-x-1/2 top-5" />
 
-                        {/* CARD */}
                         <div
                           className={`w-full md:w-[48%] ${
                             isLeft
