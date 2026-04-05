@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
 
               <div className="mt-5 text-xs text-gray-500 space-y-1">
                 <p>Status: Available for work</p>
-                <p>Response: 24–48 hours</p>
+                <p>Response: Immediate</p>
                 <p>Location: Remote / Philippines</p>
               </div>
             </div>

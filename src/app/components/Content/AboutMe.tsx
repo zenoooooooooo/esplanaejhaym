@@ -4,6 +4,11 @@ import Section from "../Custom/Section";
 import { images, videos, gifs } from "../../constants";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
+import Button from "../Custom/Button";
+import { BsDoorOpen } from "react-icons/bs";
+import Link from "next/link";
+import { PiQuestionMark } from "react-icons/pi";
+import { Slide, toast, ToastContainer } from "react-toastify";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -31,32 +36,54 @@ const stagger = {
 
 const AboutMe = () => {
   const isDesktop = useMediaQuery({ minWidth: 1025 });
+  function toggleInfo() {
+    isDesktop
+      ? toast.info("A simple click can reveal more than you think.")
+      : toast.info(
+          "Did you know that if you view this on a desktop, the page will turn into a dark room?",
+        );
+  }
+
   return (
-    <Section className="tablet:bg-black mobile:bg-black small:bg-black w-full h-[100vh] bg-transparent text-white font-jetBrains absolute z-[9999] top-0 overflow-auto">
+    <Section className="tablet:bg-black mobile:bg-black small:bg-black w-full min-h-screen desktop:h-[100vh] bg-transparent text-white font-jetBrains absolute z-[9999] top-0 overflow-auto">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Slide}
+      />
+    
       <div className="relative z-10 w-full mx-auto">
         <motion.section
           variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          className="h-[100vh] w-full flex flex-col desktop:flex-row items-center justify-evenly text-center desktop:text-left p-6"
+          className="min-h-screen desktop:h-[100vh] w-full flex flex-col desktop:flex-row items-center justify-evenly text-center desktop:text-left px-4 py-8 sm:p-6"
         >
           <motion.div variants={isDesktop ? fadeRight : fadeUp} className="m-6">
             <img
               src={images[6].src}
               alt={images[6].name}
-              className="w-[340px] h-[340px] shadow-md transition-all duration-300 ease-in-out 
+              className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] desktop:w-[340px] desktop:h-[340px] shadow-md transition-all duration-300 ease-in-out 
         hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700 "
             />
           </motion.div>
 
           <motion.div
-            variants={isDesktop ? fadeRight : fadeUp}
-            className="max-w-4xl"
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
+  variants={isDesktop ? fadeRight : fadeUp}
+  className="max-w-4xl px-2"
+>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">
-                Hello again, I’m E-Jhay Esplana
+                Who am I?
               </span>
             </h1>
 
@@ -75,13 +102,13 @@ const AboutMe = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          className="h-[100vh] w-full flex flex-col desktop:flex-row items-center justify-evenly text-center desktop:text-right p-6"
+          className="min-h-screen desktop:h-[100vh] w-full flex flex-col desktop:flex-row items-center justify-evenly text-center desktop:text-right px-4 py-8 sm:p-6"
         >
           <motion.div
             variants={isDesktop ? fadeLeft : fadeUp}
             className="max-w-4xl order-2 desktop:order-1"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">Challenge is fun</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
@@ -100,8 +127,8 @@ const AboutMe = () => {
             variants={isDesktop ? fadeLeft : fadeUp}
             src={images[10].src}
             alt={images[10].name}
-            className="w-[340px] h-[340px] shadow-md transition-all duration-300 ease-in-out 
-        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700 = order-1 desktop:order-2"
+            className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] desktop:w-[340px] desktop:h-[340px] shadow-md transition-all duration-300 ease-in-out 
+        hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700 order-1 desktop:order-2"
           />
         </motion.section>
 
@@ -110,22 +137,22 @@ const AboutMe = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          className="h-[100vh] w-full flex flex-col items-center justify-center text-center p-6"
+          className="min-h-screen desktop:h-[100vh] w-full flex flex-col items-center justify-center text-center px-4 py-8 sm:p-6"
         >
           <motion.div
             variants={fadeUp}
-            className="flex flex-col desktop:flex-row gap-6 mb-6"
+            className="flex flex-col desktop:flex-row items-center gap-4 sm:gap-6 mb-6"
           >
             <video
               controls
-              className="w-[520px] rounded-xl border-2 border-gray-700"
+              className="w-full max-w-[520px] rounded-xl border-2 border-gray-700"
             >
               <source src={videos[0].src} type="video/mp4" />
             </video>
 
             <video
               controls
-              className="w-[520px] rounded-xl border-2 border-gray-700"
+              className="w-full max-w-[520px] rounded-xl border-2 border-gray-700"
             >
               <source src={videos[1].src} type="video/mp4" />
             </video>
@@ -133,7 +160,7 @@ const AboutMe = () => {
 
           <motion.h1
             variants={fadeUp}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4"
+            className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4"
           >
             <span className="bg-black rounded">
               Playing feels better than listening
@@ -149,7 +176,7 @@ const AboutMe = () => {
               guitar, flute, ukulele, and I’m currently learning the violin. Out
               of all of them, I consider myself a pianist at heart. Piano is the
               instrument I feel most connected to. I'm always been and always
-              will be in love with the works of Mozart, Chopin and Liszt. I
+              will be in love with the works of Mozart, Chopin, and Liszt. I
               usually learn pieces as a form of dedication to people I care
               about.
             </span>
@@ -161,21 +188,21 @@ const AboutMe = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          className="h-[100vh] w-full flex flex-col desktop:flex-row items-center justify-evenly text-center desktop:text-left p-6"
+          className="min-h-screen desktop:h-[100vh] w-full flex flex-col desktop:flex-row items-center justify-evenly text-center desktop:text-left px-4 py-8 sm:p-6"
         >
           <motion.img
             variants={isDesktop ? fadeRight : fadeUp}
             src={images[8].src}
             alt={images[8].name}
-            className="w-[340px] h-[340px] shadow-md transition-all duration-300 ease-in-out 
+            className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] desktop:w-[340px] desktop:h-[340px] shadow-md transition-all duration-300 ease-in-out 
         hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700"
           />
 
           <motion.div
-            variants={isDesktop ? fadeRight : fadeUp}
-            className="max-w-4xl"
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
+  variants={isDesktop ? fadeRight : fadeUp}
+  className="max-w-4xl px-2"
+>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">
                 Takes, takes, takes, checkmate!
               </span>
@@ -196,13 +223,13 @@ const AboutMe = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          className="h-[100vh] w-full flex flex-col desktop:flex-row items-center justify-evenly text-center desktop:text-right p-6"
+          className="min-h-screen desktop:h-[100vh] w-full flex flex-col desktop:flex-row items-center justify-evenly text-center desktop:text-right px-4 py-8 sm:p-6"
         >
           <motion.div
             variants={isDesktop ? fadeLeft : fadeUp}
             className="max-w-4xl order-2 desktop:order-1"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">Cube connoisseur</span>
             </h1>
 
@@ -221,7 +248,7 @@ const AboutMe = () => {
             variants={isDesktop ? fadeLeft : fadeUp}
             src={images[9].src}
             alt={images[9].name}
-            className="w-[340px] h-[340px] shadow-md transition-all duration-300 ease-in-out 
+            className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] desktop:w-[340px] desktop:h-[340px] shadow-md transition-all duration-300 ease-in-out 
         hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700  order-1 desktop:order-2"
           />
         </motion.section>
@@ -231,7 +258,7 @@ const AboutMe = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          className="h-[100vh] w-full flex flex-col items-center justify-center text-center p-6"
+          className="min-h-screen desktop:h-[100vh] w-full flex flex-col items-center justify-center text-center px-4 py-8 sm:p-6"
         >
           <motion.img
             variants={fadeUp}
@@ -243,7 +270,7 @@ const AboutMe = () => {
 
           <motion.h1
             variants={fadeUp}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4"
+            className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4"
           >
             → ☆ ↓ ↘ + 2 = Happiness
           </motion.h1>
@@ -266,11 +293,11 @@ const AboutMe = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          className="h-[100vh] w-full flex flex-col items-center justify-center text-center p-6"
+          className="min-h-screen desktop:h-[100vh] w-full flex flex-col items-center justify-center text-center px-4 py-8 sm:p-6"
         >
           <motion.h1
             variants={fadeUp}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4"
+            className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4"
           >
             <span className="bg-black rounded">Poetry is human</span>
           </motion.h1>
@@ -355,7 +382,7 @@ const AboutMe = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          className="h-[100vh] w-full flex flex-col items-center justify-center text-center p-6"
+          className="min-h-screen desktop:h-[100vh] w-full flex flex-col items-center justify-center text-center px-4 py-8 sm:p-6"
         >
           <motion.img
             variants={fadeUp}
@@ -366,7 +393,7 @@ const AboutMe = () => {
           />
           <motion.h1
             variants={fadeUp}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-4"
+            className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4"
           >
             <span className="bg-black rounded">YOLOOOOO</span>
           </motion.h1>
@@ -385,7 +412,7 @@ const AboutMe = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          className="h-[100vh] w-full flex flex-col items-center justify-center text-center p-6"
+          className="min-h-screen desktop:h-[100vh] w-full flex flex-col items-center justify-center text-center px-4 py-8 sm:p-6"
         >
           <motion.img
             variants={fadeUp}
@@ -418,6 +445,14 @@ const AboutMe = () => {
           </motion.blockquote>
         </motion.section>
       </div>
+      <Button
+        text={<PiQuestionMark />}
+        onClick={toggleInfo}
+        className="fixed top-10 left-20 z-[9999] text-2xl"
+      />
+      <Link href="/" className="fixed top-10 left-10 z-[9999] text-2xl">
+        <BsDoorOpen />
+      </Link>
     </Section>
   );
 };
