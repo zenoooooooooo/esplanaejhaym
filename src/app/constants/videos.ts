@@ -8,11 +8,11 @@ const videos: IImages[] = [
     name: "liebestraum",
   },
   {
-    src: "./videos/sonic.mp4", // 3
+    src: "./videos/sonic.mp4",
     name: "Sonic"
   },
    {
-    src: "./videos/gen26.mp4", // 4
+    src: "./videos/gen26.mp4",
     name: "General Assembly 2026"
   },
 ];
