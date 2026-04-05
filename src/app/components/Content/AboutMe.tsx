@@ -59,7 +59,7 @@ const AboutMe = () => {
         theme="dark"
         transition={Slide}
       />
-    
+
       <div className="relative z-10 w-full mx-auto">
         <motion.section
           variants={stagger}
@@ -78,13 +78,11 @@ const AboutMe = () => {
           </motion.div>
 
           <motion.div
-  variants={isDesktop ? fadeRight : fadeUp}
-  className="max-w-4xl px-2"
->
+            variants={isDesktop ? fadeRight : fadeUp}
+            className="max-w-4xl px-2"
+          >
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4">
-              <span className="bg-black rounded">
-                Who am I?
-              </span>
+              <span className="bg-black rounded">Who am I?</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
@@ -199,9 +197,9 @@ const AboutMe = () => {
           />
 
           <motion.div
-  variants={isDesktop ? fadeRight : fadeUp}
-  className="max-w-4xl px-2"
->
+            variants={isDesktop ? fadeRight : fadeUp}
+            className="max-w-4xl px-2"
+          >
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-blue-400 mb-4">
               <span className="bg-black rounded">
                 Takes, takes, takes, checkmate!
@@ -388,7 +386,7 @@ const AboutMe = () => {
             variants={fadeUp}
             src={images[2].src}
             alt={images[2].name}
-            className="w-[320px] h-[320px] shadow-md transition-all duration-300 ease-in-out 
+            className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] desktop:w-[340px] desktop:h-[340px] shadow-md transition-all duration-300 ease-in-out 
         hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700 mb-8"
           />
           <motion.h1
@@ -418,7 +416,7 @@ const AboutMe = () => {
             variants={fadeUp}
             src={images[4].src}
             alt={images[4].name}
-            className="w-[320px] h-[320px] shadow-md transition-all duration-300 ease-in-out 
+            className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] desktop:w-[340px] desktop:h-[340px] shadow-md transition-all duration-300 ease-in-out 
         hover:shadow-[0px_0px_40px_10px_rgba(59,130,246,0.8)] rounded-full object-cover border-4 border-gray-700 mb-8"
           />
 
